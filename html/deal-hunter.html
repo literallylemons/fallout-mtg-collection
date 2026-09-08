@@ -8,7 +8,6 @@
     <title>Deal Hunter</title>
     <link rel="stylesheet" href="../css/terminal.css">
     <link rel="stylesheet" href="../css/standard-foil.css">
-    <link rel="stylesheet" href="../css/surge-foil.css?v=1">
     <link rel="stylesheet" href="../css/rainbow-foil.css?v=2">
     <style>
 
@@ -138,7 +137,7 @@ body{
     height:100%;
     display:none;
     pointer-events:none;
-    border-radius:17px;
+    border-radius:15px;
     z-index:2;
 }
 
@@ -950,7 +949,7 @@ function revealTarget(target) {
     
     
     if (imageUrl) {
-
+    
         image.src =
             imageUrl;
     
@@ -960,77 +959,41 @@ function revealTarget(target) {
         image.style.display =
             "block";
     
+    
         /*
          * ----------------------------------------------------
          * FOIL EFFECT
          * ----------------------------------------------------
          */
     
-        foilOverlay.className = "";
-        foilOverlay.innerHTML = "";
-        foilOverlay.style.display = "none";
-    
         if (target.finish === "Standard Foil") {
-    
+        
             foilOverlay.className =
                 "standard-foil";
-    
+        
             foilOverlay.style.display =
                 "block";
-    
+        
         }
-    
+        
         else if (target.finish === "Rainbow Foil") {
-    
+        
             foilOverlay.className =
                 "rainbow-foil";
-    
+        
             foilOverlay.style.display =
                 "block";
-    
+        
         }
-    
-        else if (target.finish === "Surge Foil") {
-    
-            foilOverlay.className =
-                "surge-foil";
-    
-            /*
-             * Create individual Surge Foil streaks.
-             */
-    
-            for (let i = 0; i < 8; i++) {
-    
-                const streak =
-                    document.createElement("div");
-    
-                streak.className =
-                    "surge-streak";
-    
-                foilOverlay.appendChild(streak);
-    
-            }
-    
-            foilOverlay.style.display =
-                "block";
-    
-        }
-    
-        /*
-         * No Foil
-         */
-    
+        
         else {
-    
+        
             foilOverlay.className =
                 "";
-    
-            foilOverlay.innerHTML =
-                "";
-    
+        
             foilOverlay.style.display =
                 "none";
-    
+        
         }
     
     }
@@ -1040,9 +1003,6 @@ function revealTarget(target) {
         image.style.display =
             "none";
     
-        foilOverlay.innerHTML =
-            "";
-    
         foilOverlay.className =
             "";
     
@@ -1050,6 +1010,7 @@ function revealTarget(target) {
             "none";
     
     }
+
 
     /*
      * Build eBay search.
