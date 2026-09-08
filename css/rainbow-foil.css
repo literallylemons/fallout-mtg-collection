@@ -1,0 +1,206 @@
+/*
+ * --------------------------------------------------------
+ * RAINBOW FOIL
+ * --------------------------------------------------------
+ */
+
+#foilOverlay.rainbow-foil{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    pointer-events:none;
+    overflow:hidden;
+    border-radius:15px;
+    z-index:10;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(80,220,255,.20),
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 75% 15%,
+            rgba(255,120,210,.18),
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 35% 65%,
+            rgba(120,255,180,.16),
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(255,220,100,.18),
+            transparent 50%
+        );
+
+    mix-blend-mode:screen;
+    opacity:.42;
+
+    animation:
+        rainbowFoilColors 12s ease-in-out infinite alternate;
+}
+
+
+/*
+ * --------------------------------------------------------
+ * DIFFUSE RAINBOW COLOR
+ * --------------------------------------------------------
+ */
+
+#foilOverlay.rainbow-foil::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(0,220,255,.12) 18%,
+            rgba(100,255,220,.16) 30%,
+            rgba(255,240,100,.14) 42%,
+            rgba(255,130,190,.15) 55%,
+            rgba(150,120,255,.14) 68%,
+            rgba(0,220,255,.12) 82%,
+            transparent 100%
+        );
+
+    background-size:180% 180%;
+
+    filter:blur(12px);
+    mix-blend-mode:screen;
+    opacity:.65;
+
+    animation:
+        rainbowFoilFlow 10s ease-in-out infinite alternate;
+}
+
+
+/*
+ * --------------------------------------------------------
+ * SOFT FOIL SHEEN
+ * --------------------------------------------------------
+ */
+
+#foilOverlay.rainbow-foil::after{
+    content:"";
+    position:absolute;
+
+    top:-50%;
+    left:-100%;
+
+    width:50%;
+    height:200%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.015) 25%,
+            rgba(255,255,255,.08) 42%,
+            rgba(255,255,255,.14) 50%,
+            rgba(255,255,255,.08) 58%,
+            rgba(255,255,255,.015) 75%,
+            transparent 100%
+        );
+
+    filter:blur(18px);
+    mix-blend-mode:screen;
+    opacity:.35;
+
+    animation:
+        rainbowFoilReflection 9s ease-in-out infinite;
+}
+
+
+/*
+ * --------------------------------------------------------
+ * COLOR MOVEMENT
+ * --------------------------------------------------------
+ */
+
+@keyframes rainbowFoilColors{
+
+    0%{
+        filter:
+            hue-rotate(0deg)
+            saturate(.85);
+    }
+
+    50%{
+        filter:
+            hue-rotate(45deg)
+            saturate(1);
+    }
+
+    100%{
+        filter:
+            hue-rotate(90deg)
+            saturate(.9);
+    }
+}
+
+
+/*
+ * --------------------------------------------------------
+ * DIFFUSE RAINBOW FLOW
+ * --------------------------------------------------------
+ */
+
+@keyframes rainbowFoilFlow{
+
+    0%{
+        transform:
+            translate(-8%, -5%)
+            rotate(-5deg);
+    }
+
+    50%{
+        transform:
+            translate(3%, 4%)
+            rotate(0deg);
+    }
+
+    100%{
+        transform:
+            translate(8%, -3%)
+            rotate(5deg);
+    }
+}
+
+
+/*
+ * --------------------------------------------------------
+ * SOFT MOVING SHEEN
+ * --------------------------------------------------------
+ */
+
+@keyframes rainbowFoilReflection{
+
+    0%{
+        left:-100%;
+        opacity:.05;
+    }
+
+    35%{
+        opacity:.12;
+    }
+
+    50%{
+        left:35%;
+        opacity:.20;
+    }
+
+    65%{
+        opacity:.12;
+    }
+
+    100%{
+        left:120%;
+        opacity:.05;
+    }
+}
