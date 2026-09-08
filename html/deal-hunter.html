@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/terminal.css">
     <link rel="stylesheet" href="../css/standard-foil.css">
     <link rel="stylesheet" href="../css/rainbow-foil.css?v=2">
+    <link rel="stylesheet" href="../css/surge-foil.css?v=1">
     <style>
 
 body{
@@ -967,9 +968,12 @@ function revealTarget(target) {
          */
     
         if (target.finish === "Standard Foil") {
-        
+
             foilOverlay.className =
                 "standard-foil";
+        
+            foilOverlay.innerHTML =
+                "";
         
             foilOverlay.style.display =
                 "block";
@@ -981,20 +985,39 @@ function revealTarget(target) {
             foilOverlay.className =
                 "rainbow-foil";
         
+            foilOverlay.innerHTML =
+                "";
+        
             foilOverlay.style.display =
                 "block";
         
         }
         
-        else {
+        else if (target.finish === "Surge Foil") {
         
             foilOverlay.className =
+                "surge-foil";
+        
+            foilOverlay.innerHTML =
                 "";
         
             foilOverlay.style.display =
-                "none";
+                "block";
         
         }
+
+else {
+
+    foilOverlay.className =
+        "";
+
+    foilOverlay.innerHTML =
+        "";
+
+    foilOverlay.style.display =
+        "none";
+
+}
     
     }
     
