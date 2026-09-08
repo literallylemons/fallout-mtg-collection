@@ -967,8 +967,6 @@ function revealTarget(target) {
          * ----------------------------------------------------
          */
     
-        foilOverlay.innerHTML = "";
-
         if (target.finish === "Standard Foil") {
             foilOverlay.className =
                 "standard-foil";
@@ -986,8 +984,6 @@ function revealTarget(target) {
                 "surge-foil";
             foilOverlay.style.display =
                 "block";
-            foilOverlay.innerHTML =
-                '<span class="surge-streak"></span>'.repeat(6);
         }
         else {
             foilOverlay.className =
