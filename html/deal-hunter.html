@@ -47,6 +47,7 @@ body{
 }
 
 .controls select,
+.controls input,
 .controls button{
     appearance:none;
     background:#020502;
@@ -57,7 +58,28 @@ body{
     font-size:15px;
     text-shadow:0 0 3px var(--terminal-green);
     box-shadow:0 0 5px var(--terminal-green-glow);
+}
+
+.controls select,
+.controls input{
+    outline:none;
+}
+
+.controls button{
     cursor:pointer;
+}
+
+.controls select:hover,
+.controls input:hover,
+.controls button:hover,
+.controls select:focus,
+.controls input:focus,
+.controls button:focus{
+    background:var(--terminal-green);
+    color:#020502;
+    outline:none;
+    text-shadow:none;
+    box-shadow:0 0 10px var(--terminal-green-glow);
 }
 
 .controls select:hover,
@@ -190,6 +212,7 @@ body{
     }
 
     .controls select,
+    .controls input,
     .controls button{
         width:100%;
     }
@@ -251,16 +274,27 @@ body{
         <option value="any">
             Any Card
         </option>
-
+    
         <option value="unowned">
             Unowned Only
         </option>
-
+    
         <option value="owned">
             Owned Only
         </option>
-
+    
+        <option value="byNumber">
+            By Number
+        </option>
+    
     </select>
+    
+    <input
+        type="text"
+        id="cardNumberInput"
+        placeholder="Card Number"
+        style="display:none;"
+    >
 
 
     <select id="set">
@@ -525,16 +559,19 @@ function startHunt() {
 
     const ownership =
         document.getElementById("ownership").value;
-
-
+    
     const selectedSet =
         document.getElementById("set").value;
-
-
+    
     const selectedFinish =
         document.getElementById("finish").value;
-
-
+    
+    const cardNumberInput =
+        document.getElementById("cardNumberInput");
+    
+    const requestedCardNumber =
+        cardNumberInput.value.trim();
+    
     const available = [];
 
 
@@ -542,81 +579,188 @@ function startHunt() {
      * Build list of possible targets.
      */
 
-    cards.forEach(card => {
+    if (ownership === "byNumber") {
 
-        if (
-            selectedSet !== "ANY" &&
-            card.set !== selectedSet
-        ) {
-
+        if (!requestedCardNumber) {
+    
+            document.getElementById("scanner").textContent =
+                "Enter a card number.";
+    
+            document.getElementById("result").style.display =
+                "none";
+    
             return;
-
+    
         }
-
-
-        getFinishData(card).forEach(finish => {
-
-            /*
-             * Not Possible finishes cannot
-             * be selected.
-             */
-
+    
+    
+    
+        cards.forEach(card => {
+    
             if (
-                finish.ownership === "Not Possible"
+                String(card.number).trim() !==
+                requestedCardNumber
             ) {
-
+    
                 return;
-
+    
             }
-
-
+    
+    
+    
             if (
-                ownership !== "any" &&
-                finish.ownership.toLowerCase() !== ownership
+                selectedSet !== "ANY" &&
+                card.set !== selectedSet
             ) {
-
+    
                 return;
-
+    
             }
-
-
-            if (
-                selectedFinish !== "ANY" &&
-                finish.finish !== selectedFinish
-            ) {
-
-                return;
-
-            }
-
-
-            available.push({
-
-                card: card,
-
-                finish: finish.finish,
-
-                ownership: finish.ownership,
-
-                value: finish.value
-
+    
+    
+    
+            getFinishData(card).forEach(finish => {
+    
+                /*
+                 * Not Possible finishes cannot
+                 * be selected.
+                 */
+    
+                if (
+                    finish.ownership === "Not Possible"
+                ) {
+    
+                    return;
+    
+                }
+    
+    
+    
+                if (
+                    selectedFinish !== "ANY" &&
+                    finish.finish !== selectedFinish
+                ) {
+    
+                    return;
+    
+                }
+    
+    
+    
+                available.push({
+    
+                    card: card,
+    
+                    finish: finish.finish,
+    
+                    ownership: finish.ownership,
+    
+                    value: finish.value
+    
+                });
+    
             });
-
+    
         });
-
-    });
+    
+    }
+    
+    else {
+    
+        cards.forEach(card => {
+    
+            if (
+                selectedSet !== "ANY" &&
+                card.set !== selectedSet
+            ) {
+    
+                return;
+    
+            }
+    
+    
+    
+            getFinishData(card).forEach(finish => {
+    
+                /*
+                 * Not Possible finishes cannot
+                 * be selected.
+                 */
+    
+                if (
+                    finish.ownership === "Not Possible"
+                ) {
+    
+                    return;
+    
+                }
+    
+    
+    
+                if (
+                    ownership !== "any" &&
+                    finish.ownership.toLowerCase() !== ownership
+                ) {
+    
+                    return;
+    
+                }
+    
+    
+    
+                if (
+                    selectedFinish !== "ANY" &&
+                    finish.finish !== selectedFinish
+                ) {
+    
+                    return;
+    
+                }
+    
+    
+    
+                available.push({
+    
+                    card: card,
+    
+                    finish: finish.finish,
+    
+                    ownership: finish.ownership,
+    
+                    value: finish.value
+    
+                });
+    
+            });
+    
+        });
+    
+    }
 
 
     if (available.length === 0) {
 
-        document.getElementById("scanner").textContent =
-            "No valid targets found.";
-
+        if (ownership === "byNumber") {
+    
+            document.getElementById("scanner").textContent =
+                "No valid card found for number " +
+                requestedCardNumber +
+                ".";
+    
+        }
+    
+        else {
+    
+            document.getElementById("scanner").textContent =
+                "No valid targets found.";
+    
+        }
+    
         document.getElementById("result").style.display =
             "none";
-
+    
         return;
-
+    
     }
 
 
@@ -932,6 +1076,36 @@ function revealTarget(target) {
 
 }
 
+document
+    .getElementById("ownership")
+    .addEventListener(
+        "change",
+        function(){
+
+            const cardNumberInput =
+                document.getElementById("cardNumberInput");
+
+            if (this.value === "byNumber") {
+
+                cardNumberInput.style.display =
+                    "block";
+
+                cardNumberInput.focus();
+
+            }
+
+            else {
+
+                cardNumberInput.style.display =
+                    "none";
+
+                cardNumberInput.value =
+                    "";
+
+            }
+
+        }
+    );
 
 document
     .getElementById("huntButton")
