@@ -103,24 +103,18 @@
 @keyframes standardFoilColors{
 
     0%{
-        transform:scale(1);
-
         filter:
             hue-rotate(0deg)
             saturate(1.1);
     }
 
     50%{
-        transform:scale(1.04);
-
         filter:
             hue-rotate(90deg)
             saturate(1.4);
     }
 
     100%{
-        transform:scale(1);
-
         filter:
             hue-rotate(180deg)
             saturate(1.2);
@@ -139,22 +133,19 @@
     0%{
         transform:
             translate(-15%, -10%)
-            rotate(-10deg)
-            scale(1);
+            rotate(-10deg);
     }
 
     50%{
         transform:
             translate(5%, 5%)
-            rotate(0deg)
-            scale(1);
+            rotate(0deg);
     }
 
     100%{
         transform:
             translate(15%, -5%)
-            rotate(10deg)
-            scale(1.15);
+            rotate(10deg);
     }
 }
 
