@@ -138,7 +138,7 @@ body{
     height:100%;
     display:none;
     pointer-events:none;
-    border-radius:15px;
+    border-radius:17px;
     z-index:2;
 }
 
@@ -966,50 +966,56 @@ function revealTarget(target) {
          * FOIL EFFECT
          * ----------------------------------------------------
          */
-    
+        
+        foilOverlay.className = "";
+        foilOverlay.innerHTML = "";
+        foilOverlay.style.display = "none";
+        
         if (target.finish === "Standard Foil") {
+        
             foilOverlay.className =
                 "standard-foil";
+        
             foilOverlay.style.display =
                 "block";
+        
         }
+        
         else if (target.finish === "Rainbow Foil") {
+        
             foilOverlay.className =
                 "rainbow-foil";
+        
             foilOverlay.style.display =
                 "block";
+        
         }
+        
         else if (target.finish === "Surge Foil") {
+        
             foilOverlay.className =
                 "surge-foil";
+        
+            /*
+             * Create individual Surge Foil streaks.
+             */
+        
+            for (let i = 0; i < 8; i++) {
+        
+                const streak =
+                    document.createElement("div");
+        
+                streak.className =
+                    "surge-streak";
+        
+                foilOverlay.appendChild(streak);
+        
+            }
+        
             foilOverlay.style.display =
                 "block";
+        
         }
-        else {
-            foilOverlay.className =
-                "";
-            foilOverlay.style.display =
-                "none";
-        }
-    
-    }
-    
-    else {
-
-        image.style.display =
-            "none";
-    
-        foilOverlay.innerHTML =
-            "";
-    
-        foilOverlay.className =
-            "";
-    
-        foilOverlay.style.display =
-            "none";
-    
-    }
-
 
     /*
      * Build eBay search.
