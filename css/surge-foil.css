@@ -2,23 +2,15 @@
  * --------------------------------------------------------
  * SURGE FOIL
  * --------------------------------------------------------
- * How real surge foil works, and how this mimics it:
+ * The jagged shapes are a fixed mask (etched pattern, never
+ * animates). A rainbow gradient sits underneath and slides
+ * position - that's the only thing that animates, and it's
+ * cheap.
  *
- * The jagged lightning-bolt shapes are FIXED on the card -
- * etched into the foil. What moves is a rainbow band of
- * light sliding underneath them. That's why a single jagged
- * streak shows a whole rainbow along its own length, and why
- * different streaks never seem to be in sync with each other.
- *
- * This file recreates that with two layers on ONE element:
- *   1. A jagged shape used as a MASK (a cut-out window).
- *      This never animates - it's free after the first paint.
- *   2. A rainbow gradient underneath, which only slides
- *      position. Animating position is cheap - much cheaper
- *      than the blur filters used in the old version.
- *
- * No JavaScript is required for this - just the "surge-foil"
- * class, same as before.
+ * IMPORTANT: the gradient angle (22deg) is set to run in the
+ * SAME direction as the streaks themselves. That's what makes
+ * a single streak fade through the whole rainbow along its
+ * length, instead of being one flat solid color.
  * --------------------------------------------------------
  */
 
@@ -34,13 +26,13 @@
     z-index:10;
 
     /*
-     * The rainbow band. Repeats every 200px along a 115deg
-     * angle. Using px (not %) for the stops keeps the repeat
-     * length constant no matter what size the card renders at.
+     * Rainbow band, repeats every 200px, running at 22deg -
+     * matching the streaks' own diagonal lean so color changes
+     * as you travel ALONG a streak, not across it.
      */
     background:
         repeating-linear-gradient(
-            115deg,
+            22deg,
             #3b6cff 0px,
             #22d0ff 25px,
             #21ffb0 50px,
@@ -53,23 +45,22 @@
         );
 
     /*
-     * The jagged shape, used as a mask. Everywhere the white
-     * strokes are drawn = visible rainbow. Everywhere else =
-     * fully transparent, letting the card art show through.
+     * Jagged mask - thinner strokes this time, so more of the
+     * card art shows through the gaps between streaks.
      */
     -webkit-mask-image:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-190 0 890 700' preserveAspectRatio='none'><path d='M-180,700 L-155,583 L-65,467 L-62,350 L29,233 L31,117 L100,0' stroke='white' stroke-width='50' fill='none' stroke-linejoin='miter'/><path d='M-60,700 L13,583 L7,467 L106,350 L101,233 L199,117 L220,0' stroke='white' stroke-width='60' fill='none' stroke-linejoin='miter'/><path d='M60,700 L89,583 L171,467 L182,350 L265,233 L275,117 L340,0' stroke='white' stroke-width='45' fill='none' stroke-linejoin='miter'/><path d='M180,700 L251,583 L249,467 L344,350 L343,233 L437,117 L460,0' stroke='white' stroke-width='65' fill='none' stroke-linejoin='miter'/><path d='M300,700 L327,583 L413,467 L420,350 L507,233 L513,117 L580,0' stroke='white' stroke-width='50' fill='none' stroke-linejoin='miter'/><path d='M420,700 L495,583 L485,467 L588,350 L579,233 L681,117 L700,0' stroke='white' stroke-width='55' fill='none' stroke-linejoin='miter'/></svg>");
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-190 0 890 700' preserveAspectRatio='none'><path d='M-180,700 L-155,583 L-65,467 L-62,350 L29,233 L31,117 L100,0' stroke='white' stroke-width='22' fill='none' stroke-linejoin='miter'/><path d='M-60,700 L13,583 L7,467 L106,350 L101,233 L199,117 L220,0' stroke='white' stroke-width='26' fill='none' stroke-linejoin='miter'/><path d='M60,700 L89,583 L171,467 L182,350 L265,233 L275,117 L340,0' stroke='white' stroke-width='20' fill='none' stroke-linejoin='miter'/><path d='M180,700 L251,583 L249,467 L344,350 L343,233 L437,117 L460,0' stroke='white' stroke-width='28' fill='none' stroke-linejoin='miter'/><path d='M300,700 L327,583 L413,467 L420,350 L507,233 L513,117 L580,0' stroke='white' stroke-width='24' fill='none' stroke-linejoin='miter'/><path d='M420,700 L495,583 L485,467 L588,350 L579,233 L681,117 L700,0' stroke='white' stroke-width='26' fill='none' stroke-linejoin='miter'/></svg>");
     mask-image:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-190 0 890 700' preserveAspectRatio='none'><path d='M-180,700 L-155,583 L-65,467 L-62,350 L29,233 L31,117 L100,0' stroke='white' stroke-width='50' fill='none' stroke-linejoin='miter'/><path d='M-60,700 L13,583 L7,467 L106,350 L101,233 L199,117 L220,0' stroke='white' stroke-width='60' fill='none' stroke-linejoin='miter'/><path d='M60,700 L89,583 L171,467 L182,350 L265,233 L275,117 L340,0' stroke='white' stroke-width='45' fill='none' stroke-linejoin='miter'/><path d='M180,700 L251,583 L249,467 L344,350 L343,233 L437,117 L460,0' stroke='white' stroke-width='65' fill='none' stroke-linejoin='miter'/><path d='M300,700 L327,583 L413,467 L420,350 L507,233 L513,117 L580,0' stroke='white' stroke-width='50' fill='none' stroke-linejoin='miter'/><path d='M420,700 L495,583 L485,467 L588,350 L579,233 L681,117 L700,0' stroke='white' stroke-width='55' fill='none' stroke-linejoin='miter'/></svg>");
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-190 0 890 700' preserveAspectRatio='none'><path d='M-180,700 L-155,583 L-65,467 L-62,350 L29,233 L31,117 L100,0' stroke='white' stroke-width='22' fill='none' stroke-linejoin='miter'/><path d='M-60,700 L13,583 L7,467 L106,350 L101,233 L199,117 L220,0' stroke='white' stroke-width='26' fill='none' stroke-linejoin='miter'/><path d='M60,700 L89,583 L171,467 L182,350 L265,233 L275,117 L340,0' stroke='white' stroke-width='20' fill='none' stroke-linejoin='miter'/><path d='M180,700 L251,583 L249,467 L344,350 L343,233 L437,117 L460,0' stroke='white' stroke-width='28' fill='none' stroke-linejoin='miter'/><path d='M300,700 L327,583 L413,467 L420,350 L507,233 L513,117 L580,0' stroke='white' stroke-width='24' fill='none' stroke-linejoin='miter'/><path d='M420,700 L495,583 L485,467 L588,350 L579,233 L681,117 L700,0' stroke='white' stroke-width='26' fill='none' stroke-linejoin='miter'/></svg>");
 
     -webkit-mask-repeat:no-repeat;
     mask-repeat:no-repeat;
     -webkit-mask-size:100% 100%;
     mask-size:100% 100%;
 
-    filter:saturate(1.25) brightness(1.05);
+    filter:saturate(1.1);
     mix-blend-mode:screen;
-    opacity:.85;
+    opacity:.6;
 
     animation:surgeFoilSweep 6s linear infinite;
 }
@@ -79,9 +70,8 @@
  * --------------------------------------------------------
  * THE SWEEP
  * --------------------------------------------------------
- * Moves the rainbow by exactly one full repeat (200px along
- * a 115deg angle = -85px horizontally, 181px vertically) so
- * the loop is perfectly seamless with no visible jump/reset.
+ * Moves the rainbow exactly one full repeat along the 22deg
+ * angle (200px worth) so the loop is seamless.
  * --------------------------------------------------------
  */
 
@@ -92,6 +82,6 @@
     }
 
     100%{
-        background-position:-85px 181px;
+        background-position:75px -185px;
     }
 }
