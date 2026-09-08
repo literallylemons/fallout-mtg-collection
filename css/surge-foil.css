@@ -71,7 +71,7 @@
     background-size:240% 240%;
 
     mix-blend-mode:screen;
-    opacity:.85;
+    opacity:.55;
 
     animation:
         surgeFoilMovement 8s ease-in-out infinite alternate;
@@ -145,11 +145,11 @@
     background-size:220% 220%;
 
     filter:
-        blur(.7px)
-        saturate(1.45);
+        blur(1px)
+        saturate(1.35);
 
     mix-blend-mode:screen;
-    opacity:.90;
+    opacity:.55;
 
     animation:
         surgeFoilStreaks 7s ease-in-out infinite alternate;
