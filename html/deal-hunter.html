@@ -8,6 +8,7 @@
     <title>Deal Hunter</title>
     <link rel="stylesheet" href="../css/terminal.css">
     <link rel="stylesheet" href="../css/standard-foil.css">
+    <link rel="stylesheet" href="../css/surge-foil.css?v=1">
     <link rel="stylesheet" href="../css/rainbow-foil.css?v=2">
     <style>
 
@@ -967,33 +968,28 @@ function revealTarget(target) {
          */
     
         if (target.finish === "Standard Foil") {
-        
             foilOverlay.className =
                 "standard-foil";
-        
             foilOverlay.style.display =
                 "block";
-        
         }
-        
         else if (target.finish === "Rainbow Foil") {
-        
             foilOverlay.className =
                 "rainbow-foil";
-        
             foilOverlay.style.display =
                 "block";
-        
         }
-        
+        else if (target.finish === "Surge Foil") {
+            foilOverlay.className =
+                "surge-foil";
+            foilOverlay.style.display =
+                "block";
+        }
         else {
-        
             foilOverlay.className =
                 "";
-        
             foilOverlay.style.display =
                 "none";
-        
         }
     
     }
