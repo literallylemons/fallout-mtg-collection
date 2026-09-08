@@ -13,35 +13,11 @@
     pointer-events:none;
     overflow:hidden;
     border-radius:15px;
-    z-index:10;
+    z-index:999;
 
-    background:
-        radial-gradient(
-            ellipse at 15% 20%,
-            rgba(80,220,255,.20),
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 75% 15%,
-            rgba(255,120,210,.18),
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 35% 65%,
-            rgba(120,255,180,.16),
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 80% 75%,
-            rgba(255,220,100,.18),
-            transparent 50%
-        );
-
-    mix-blend-mode:screen;
-    opacity:.42;
-
-    animation:
-        rainbowFoilColors 12s ease-in-out infinite alternate;
+    background:blue !important;
+    opacity:1 !important;
+    mix-blend-mode:normal !important;
 }
 
 
