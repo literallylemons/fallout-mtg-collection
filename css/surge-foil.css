@@ -15,44 +15,30 @@
     border-radius:15px;
     z-index:10;
 
-    /*
-     * The SVG contains the actual jagged foil streaks.
-     */
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 840'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3C/filter%3E%3ClinearGradient id='c' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2300eaff'/%3E%3Cstop offset='.2' stop-color='%233050ff'/%3E%3Cstop offset='.4' stop-color='%23d020ff'/%3E%3Cstop offset='.6' stop-color='%23ff2060'/%3E%3Cstop offset='.8' stop-color='%23ffd000'/%3E%3Cstop offset='1' stop-color='%2300ffb0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23c)' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='9' opacity='.22' filter='url(%23g)' d='M20 170 L70 140 L105 148 L145 110 L185 118 L225 75 L265 92 L310 48'/%3E%3Cpath stroke-width='4' opacity='.9' d='M20 170 L70 140 L105 148 L145 110 L185 118 L225 75 L265 92 L310 48'/%3E%3Cpath stroke-width='7' opacity='.18' filter='url(%23g)' d='M5 290 L45 258 L82 270 L120 225 L155 238 L195 190 L230 205 L275 155'/%3E%3Cpath stroke-width='3' opacity='.85' d='M5 290 L45 258 L82 270 L120 225 L155 238 L195 190 L230 205 L275 155'/%3E%3Cpath stroke-width='8' opacity='.2' filter='url(%23g)' d='M100 390 L140 355 L175 368 L210 320 L250 335 L290 285 L325 300 L370 250'/%3E%3Cpath stroke-width='4' opacity='.9' d='M100 390 L140 355 L175 368 L210 320 L250 335 L290 285 L325 300 L370 250'/%3E%3Cpath stroke-width='8' opacity='.2' filter='url(%23g)' d='M235 510 L275 475 L310 488 L350 440 L385 452 L425 405 L460 418 L500 370'/%3E%3Cpath stroke-width='4' opacity='.88' d='M235 510 L275 475 L310 488 L350 440 L385 452 L425 405 L460 418 L500 370'/%3E%3Cpath stroke-width='8' opacity='.2' filter='url(%23g)' d='M330 650 L370 615 L405 628 L445 580 L480 592 L520 545 L555 558 L595 510'/%3E%3Cpath stroke-width='4' opacity='.9' d='M330 650 L370 615 L405 628 L445 580 L480 592 L520 545 L555 558 L595 510'/%3E%3Cpath stroke-width='7' opacity='.2' filter='url(%23g)' d='M25 610 L60 580 L95 592 L125 550 L160 560 L195 520 L225 532 L260 495'/%3E%3Cpath stroke-width='3' opacity='.82' d='M25 610 L60 580 L95 592 L125 550 L160 560 L195 520 L225 532 L260 495'/%3E%3Cpath stroke-width='7' opacity='.2' filter='url(%23g)' d='M390 245 L420 218 L450 228 L485 190 L515 202 L550 160 L580 170'/%3E%3Cpath stroke-width='3' opacity='.88' d='M390 245 L420 218 L450 228 L485 190 L515 202 L550 160 L580 170'/%3E%3Cpath stroke-width='7' opacity='.2' filter='url(%23g)' d='M40 450 L75 420 L105 432 L135 395 L165 405 L195 370'/%3E%3Cpath stroke-width='3' opacity='.9' d='M40 450 L75 420 L105 432 L135 395 L165 405 L195 370'/%3E%3Cpath stroke-width='7' opacity='.2' filter='url(%23g)' d='M430 760 L465 730 L500 742 L535 700 L570 712 L600 675'/%3E%3Cpath stroke-width='3' opacity='.88' d='M430 760 L465 730 L500 742 L535 700 L570 712 L600 675'/%3E%3C/g%3E%3C/svg%3E");
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 840'%3E%3Cdefs%3E%3ClinearGradient id='rainbow' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300d9ff'/%3E%3Cstop offset='18%25' stop-color='%234b45ff'/%3E%3Cstop offset='36%25' stop-color='%23d52cff'/%3E%3Cstop offset='52%25' stop-color='%23ff277e'/%3E%3Cstop offset='68%25' stop-color='%23ffb300'/%3E%3Cstop offset='84%25' stop-color='%23aaff00'/%3E%3Cstop offset='100%25' stop-color='%2300eaff'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='url(%23rainbow)'%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M-40 150 L20 105 L58 116 L105 70 L145 83 L185 35 L225 50 L265 5 L285 18 L235 70 L195 58 L155 105 L115 92 L72 140 L30 128 L-20 175 Z'/%3E%3Cpath d='M-40 150 L20 105 L58 116 L105 70 L145 83 L185 35 L225 50 L265 5 L285 18 L235 70 L195 58 L155 105 L115 92 L72 140 L30 128 L-20 175 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M40 260 L92 220 L125 232 L165 184 L202 198 L245 150 L278 163 L320 112 L338 128 L294 180 L260 168 L218 214 L182 203 L140 248 L108 236 L55 278 Z'/%3E%3Cpath d='M40 260 L92 220 L125 232 L165 184 L202 198 L245 150 L278 163 L320 112 L338 128 L294 180 L260 168 L218 214 L182 203 L140 248 L108 236 L55 278 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M-15 355 L38 310 L72 324 L115 276 L150 291 L190 242 L226 257 L270 205 L290 220 L244 274 L208 262 L168 310 L132 296 L90 343 L55 330 L5 372 Z'/%3E%3Cpath d='M-15 355 L38 310 L72 324 L115 276 L150 291 L190 242 L226 257 L270 205 L290 220 L244 274 L208 262 L168 310 L132 296 L90 343 L55 330 L5 372 Z'/%3E%3Cpath opacity='.24' filter='url(%23glow)' d='M150 390 L198 348 L232 360 L272 313 L308 327 L350 278 L384 291 L425 244 L445 260 L402 310 L368 298 L328 344 L292 333 L250 378 L216 366 L168 408 Z'/%3E%3Cpath d='M150 390 L198 348 L232 360 L272 313 L308 327 L350 278 L384 291 L425 244 L445 260 L402 310 L368 298 L328 344 L292 333 L250 378 L216 366 L168 408 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M285 485 L332 442 L366 455 L407 408 L442 421 L483 374 L520 387 L562 338 L585 354 L542 405 L505 393 L464 438 L429 426 L388 472 L354 460 L304 502 Z'/%3E%3Cpath d='M285 485 L332 442 L366 455 L407 408 L442 421 L483 374 L520 387 L562 338 L585 354 L542 405 L505 393 L464 438 L429 426 L388 472 L354 460 L304 502 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M15 505 L65 462 L98 475 L138 430 L174 443 L214 396 L250 410 L292 360 L310 376 L267 426 L231 414 L191 459 L156 447 L116 493 L82 481 L32 522 Z'/%3E%3Cpath d='M15 505 L65 462 L98 475 L138 430 L174 443 L214 396 L250 410 L292 360 L310 376 L267 426 L231 414 L191 459 L156 447 L116 493 L82 481 L32 522 Z'/%3E%3Cpath opacity='.24' filter='url(%23glow)' d='M110 610 L160 566 L194 579 L235 532 L270 545 L312 497 L347 510 L388 462 L410 478 L367 528 L332 516 L290 562 L255 550 L214 597 L180 585 L130 626 Z'/%3E%3Cpath d='M110 610 L160 566 L194 579 L235 532 L270 545 L312 497 L347 510 L388 462 L410 478 L367 528 L332 516 L290 562 L255 550 L214 597 L180 585 L130 626 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M300 690 L350 646 L384 659 L425 612 L460 625 L502 578 L538 591 L580 543 L605 560 L563 610 L527 598 L486 644 L450 632 L409 678 L375 666 L325 707 Z'/%3E%3Cpath d='M300 690 L350 646 L384 659 L425 612 L460 625 L502 578 L538 591 L580 543 L605 560 L563 610 L527 598 L486 644 L450 632 L409 678 L375 666 L325 707 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M-20 700 L28 657 L62 670 L103 623 L138 636 L180 588 L215 601 L257 553 L278 569 L235 619 L200 607 L158 653 L123 641 L82 687 L48 675 L-2 716 Z'/%3E%3Cpath d='M-20 700 L28 657 L62 670 L103 623 L138 636 L180 588 L215 601 L257 553 L278 569 L235 619 L200 607 L158 653 L123 641 L82 687 L48 675 L-2 716 Z'/%3E%3Cpath opacity='.23' filter='url(%23glow)' d='M210 805 L260 761 L294 774 L335 727 L370 740 L412 693 L447 706 L490 658 L510 674 L468 724 L432 712 L390 758 L355 746 L314 793 L280 781 L230 822 Z'/%3E%3Cpath d='M210 805 L260 761 L294 774 L335 727 L370 740 L412 693 L447 706 L490 658 L510 674 L468 724 L432 712 L390 758 L355 746 L314 793 L280 781 L230 822 Z'/%3E%3C/g%3E%3Cg fill='white' opacity='.75'%3E%3Cpath d='M20 126 L70 91 L82 95 L34 134 Z'/%3E%3Cpath d='M175 49 L218 18 L230 22 L188 57 Z'/%3E%3Cpath d='M95 243 L142 202 L153 206 L108 250 Z'/%3E%3Cpath d='M250 368 L292 329 L304 333 L264 375 Z'/%3E%3Cpath d='M350 460 L397 418 L408 423 L366 468 Z'/%3E%3Cpath d='M50 475 L94 437 L105 441 L64 483 Z'/%3E%3Cpath d='M160 580 L205 540 L217 544 L175 589 Z'/%3E%3Cpath d='M430 620 L476 578 L488 583 L445 629 Z'/%3E%3Cpath d='M260 770 L305 730 L317 735 L275 779 Z'/%3E%3C/g%3E%3C/svg%3E");
 
-    background-size:
-        100% 100%;
+    background-size:100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
 
-    background-position:
-        center;
+    mix-blend-mode:screen;
 
-    background-repeat:
-        no-repeat;
-
-    mix-blend-mode:
-        screen;
-
-    opacity:
-        .72;
+    opacity:.58;
 
     filter:
-        saturate(1.7);
+        saturate(1.7)
+        contrast(1.08);
 
     animation:
-        surgeFoilColor
-        12s
-        linear
-        infinite;
+        surgeFoilColor 14s linear infinite;
 }
 
 
 /*
  * --------------------------------------------------------
- * SECOND STREAK LAYER
+ * SECONDARY FOIL TEXTURE
  * --------------------------------------------------------
- *
- * Adds smaller broken streaks over the main streaks.
  */
 
 #foilOverlay.surge-foil::before{
@@ -61,40 +47,34 @@
     position:absolute;
     inset:0;
 
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 840'%3E%3Cdefs%3E%3ClinearGradient id='c2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2300ffff'/%3E%3Cstop offset='.25' stop-color='%234060ff'/%3E%3Cstop offset='.5' stop-color='%23ff20d0'/%3E%3Cstop offset='.75' stop-color='%23ffcc00'/%3E%3Cstop offset='1' stop-color='%2300ff80'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23c2)' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='3' d='M70 100 L95 82 L118 90 L145 65'/%3E%3Cpath stroke-width='2.5' d='M160 155 L185 132 L210 140 L235 110'/%3E%3Cpath stroke-width='3' d='M290 115 L315 94 L340 104 L365 72'/%3E%3Cpath stroke-width='2.5' d='M420 330 L445 305 L470 315 L495 282'/%3E%3Cpath stroke-width='3' d='M120 520 L145 497 L170 507 L195 475'/%3E%3Cpath stroke-width='2.5' d='M280 590 L305 566 L330 576 L355 545'/%3E%3Cpath stroke-width='3' d='M450 620 L475 598 L500 608 L525 575'/%3E%3Cpath stroke-width='2.5' d='M185 700 L210 678 L235 688 L260 655'/%3E%3Cpath stroke-width='3' d='M515 455 L540 432 L565 442 L590 410'/%3E%3C/g%3E%3C/svg%3E");
+    background:
+        repeating-linear-gradient(
+            132deg,
+            transparent 0px,
+            transparent 28px,
+            rgba(255,255,255,.025) 29px,
+            rgba(255,255,255,.08) 31px,
+            rgba(255,255,255,.025) 33px,
+            transparent 35px,
+            transparent 61px
+        );
 
-    background-size:
-        100% 100%;
+    mix-blend-mode:screen;
 
-    background-position:
-        center;
+    opacity:.35;
 
-    background-repeat:
-        no-repeat;
-
-    mix-blend-mode:
-        screen;
-
-    opacity:
-        .65;
-
-    filter:
-        blur(.35px)
-        saturate(1.8);
+    transform:
+        translateX(-2%)
+        translateY(-1%);
 
     animation:
-        surgeFoilSecondary
-        9s
-        ease-in-out
-        infinite
-        alternate;
+        surgeFoilTexture 8s ease-in-out infinite alternate;
 }
 
 
 /*
  * --------------------------------------------------------
- * BRIGHT FOIL HIGHLIGHTS
+ * SOFT FOIL REFLECTION
  * --------------------------------------------------------
  */
 
@@ -106,39 +86,30 @@
 
     background:
         linear-gradient(
-            135deg,
-            transparent 0%,
-            rgba(255,255,255,0) 38%,
-            rgba(255,255,255,.16) 45%,
-            rgba(255,255,255,.30) 48%,
-            rgba(255,255,255,0) 52%,
-            transparent 60%
+            115deg,
+            transparent 15%,
+            rgba(255,255,255,.02) 35%,
+            rgba(255,255,255,.12) 48%,
+            rgba(255,255,255,.02) 58%,
+            transparent 78%
         );
 
-    background-size:
-        250% 250%;
+    background-size:250% 250%;
 
-    mix-blend-mode:
-        screen;
+    mix-blend-mode:screen;
 
-    opacity:
-        .35;
+    opacity:.30;
 
-    filter:
-        blur(8px);
+    filter:blur(8px);
 
     animation:
-        surgeFoilShine
-        7s
-        ease-in-out
-        infinite
-        alternate;
+        surgeFoilReflection 8s ease-in-out infinite alternate;
 }
 
 
 /*
  * --------------------------------------------------------
- * COLOR CYCLE
+ * COLOR MOVEMENT
  * --------------------------------------------------------
  */
 
@@ -147,90 +118,77 @@
     0%{
         filter:
             saturate(1.7)
+            contrast(1.08)
             hue-rotate(0deg);
-
-        background-position:
-            0% 0%;
     }
 
     25%{
         filter:
-            saturate(2)
-            hue-rotate(90deg);
-
-        background-position:
-            2% -2%;
+            saturate(1.9)
+            contrast(1.1)
+            hue-rotate(70deg);
     }
 
     50%{
         filter:
             saturate(2)
-            hue-rotate(180deg);
-
-        background-position:
-            -2% 2%;
+            contrast(1.08)
+            hue-rotate(140deg);
     }
 
     75%{
         filter:
-            saturate(2)
-            hue-rotate(270deg);
-
-        background-position:
-            2% 1%;
+            saturate(1.9)
+            contrast(1.1)
+            hue-rotate(210deg);
     }
 
     100%{
         filter:
             saturate(1.7)
+            contrast(1.08)
             hue-rotate(360deg);
-
-        background-position:
-            0% 0%;
     }
 }
 
 
 /*
  * --------------------------------------------------------
- * SECONDARY MOVEMENT
+ * TEXTURE MOVEMENT
  * --------------------------------------------------------
  */
 
-@keyframes surgeFoilSecondary{
+@keyframes surgeFoilTexture{
 
     0%{
         transform:
-            translate(-1%,-1%)
-            scale(1);
+            translate(-2%,-1%);
     }
 
     50%{
         transform:
-            translate(1%,1%)
-            scale(1.015);
+            translate(2%,1%);
     }
 
     100%{
         transform:
-            translate(-1%,1%)
-            scale(1);
+            translate(-1%,2%);
     }
 }
 
 
 /*
  * --------------------------------------------------------
- * SHINE
+ * REFLECTION MOVEMENT
  * --------------------------------------------------------
  */
 
-@keyframes surgeFoilShine{
+@keyframes surgeFoilReflection{
 
     0%{
         background-position:
             0% 50%;
-        opacity:.15;
+        opacity:.18;
     }
 
     50%{
@@ -242,6 +200,6 @@
     100%{
         background-position:
             0% 50%;
-        opacity:.15;
+        opacity:.18;
     }
 }
