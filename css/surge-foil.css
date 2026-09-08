@@ -74,7 +74,7 @@
     opacity:.35;
 
     animation:
-        surgeFoilMovement 8s ease-in-out infinite alternate;
+        surgeFoilMovement 20s ease-in-out infinite alternate;
 }
 
 
@@ -153,7 +153,7 @@
     opacity:.25;
 
     animation:
-        surgeFoilStreaks 7s ease-in-out infinite alternate;
+        surgeFoilStreaks 15s ease-in-out infinite alternate;
 }
 
 /*
