@@ -15,337 +15,349 @@
     border-radius:15px;
     z-index:10;
 
+    background:
+        linear-gradient(
+            132deg,
+            transparent 0%,
+            transparent 8%,
+            rgba(0,180,255,.70) 10%,
+            rgba(0,255,255,.85) 11%,
+            rgba(80,255,190,.70) 12%,
+            transparent 14%,
+
+            transparent 23%,
+            rgba(80,80,255,.70) 24%,
+            rgba(0,210,255,.85) 25%,
+            transparent 27%,
+
+            transparent 38%,
+            rgba(255,30,80,.70) 39%,
+            rgba(255,190,0,.85) 40%,
+            rgba(255,70,180,.70) 41%,
+            transparent 43%,
+
+            transparent 55%,
+            rgba(0,200,255,.70) 56%,
+            rgba(40,100,255,.85) 57%,
+            rgba(160,40,255,.70) 58%,
+            transparent 60%,
+
+            transparent 71%,
+            rgba(0,255,160,.70) 72%,
+            rgba(150,255,0,.85) 73%,
+            rgba(255,220,0,.75) 74%,
+            transparent 76%,
+
+            transparent 86%,
+            rgba(0,150,255,.70) 87%,
+            rgba(0,255,255,.85) 88%,
+            transparent 90%,
+
+            transparent 100%
+        );
+
+    background-size:240% 240%;
+
     mix-blend-mode:screen;
+    opacity:.55;
+
+    animation:
+        surgeFoilBase 10s ease-in-out infinite alternate;
 }
 
 
 /*
  * --------------------------------------------------------
- * ELECTRIC BORDER
+ * JAGGED STREAK LAYER 1
  * --------------------------------------------------------
- *
- * A subtle colored energy running around the card edge.
  */
 
 #foilOverlay.surge-foil::before{
     content:"";
     position:absolute;
-    inset:0;
-
-    border:3px solid transparent;
-    border-radius:15px;
+    inset:-10%;
 
     background:
+
+        /* STREAK A */
         linear-gradient(
-            90deg,
-            #00eaff,
-            #2455ff,
-            #b52cff,
-            #ff2388,
-            #ffae00,
-            #39ff88,
-            #00eaff
-        ) border-box;
+            127deg,
+            transparent 0%,
+            transparent 9%,
+            rgba(0,220,255,.80) 10%,
+            rgba(0,220,255,.80) 11%,
+            transparent 12%,
 
-    -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
+            transparent 15%,
+            rgba(0,220,255,.75) 16%,
+            rgba(0,220,255,.75) 17%,
+            transparent 18%,
 
-    -webkit-mask-composite:xor;
+            transparent 100%
+        ),
 
-    mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
+        /* STREAK B */
+        linear-gradient(
+            134deg,
+            transparent 0%,
+            transparent 28%,
+            rgba(0,255,150,.80) 29%,
+            rgba(0,255,150,.80) 30%,
+            transparent 31%,
 
-    mask-composite:exclude;
+            transparent 34%,
+            rgba(0,255,150,.75) 35%,
+            rgba(0,255,150,.75) 36%,
+            transparent 37%,
 
-    background-size:300% 300%;
+            transparent 100%
+        ),
+
+        /* STREAK C */
+        linear-gradient(
+            125deg,
+            transparent 0%,
+            transparent 51%,
+            rgba(255,40,100,.80) 52%,
+            rgba(255,40,100,.80) 53%,
+            transparent 54%,
+
+            transparent 58%,
+            rgba(255,40,100,.75) 59%,
+            rgba(255,40,100,.75) 60%,
+            transparent 61%,
+
+            transparent 100%
+        ),
+
+        /* STREAK D */
+        linear-gradient(
+            136deg,
+            transparent 0%,
+            transparent 70%,
+            rgba(150,50,255,.80) 71%,
+            rgba(150,50,255,.80) 72%,
+            transparent 73%,
+
+            transparent 77%,
+            rgba(150,50,255,.75) 78%,
+            rgba(150,50,255,.75) 79%,
+            transparent 80%,
+
+            transparent 100%
+        );
+
+    background-size:220% 220%;
 
     filter:
-        blur(.4px)
-        saturate(1.8);
+        blur(1px)
+        saturate(1.35)
+        hue-rotate(0deg);
 
+    mix-blend-mode:screen;
     opacity:.55;
 
     animation:
-        surgeBorderColor 9s linear infinite;
+        surgeFoilLayerOne 9s ease-in-out infinite alternate;
 }
 
 
 /*
  * --------------------------------------------------------
- * SECOND BORDER GLOW
+ * JAGGED STREAK LAYER 2
  * --------------------------------------------------------
  */
 
 #foilOverlay.surge-foil::after{
     content:"";
     position:absolute;
-    inset:-3px;
-
-    border-radius:17px;
-
-    border:4px solid transparent;
+    inset:-10%;
 
     background:
+
+        /* STREAK E */
         linear-gradient(
-            90deg,
-            #00eaff,
-            #2455ff,
-            #b52cff,
-            #ff2388,
-            #ffae00,
-            #39ff88,
-            #00eaff
-        ) border-box;
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite:xor;
-
-    mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-
-    mask-composite:exclude;
-
-    filter:
-        blur(5px)
-        saturate(2);
-
-    opacity:.35;
-
-    animation:
-        surgeBorderColor 9s linear infinite reverse;
-}
-
-
-/*
- * --------------------------------------------------------
- * BORDER COLOR MOVEMENT
- * --------------------------------------------------------
- */
-
-@keyframes surgeBorderColor{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:200% 50%;
-    }
-}
-
-
-/*
- * --------------------------------------------------------
- * ELECTRIC STREAKS
- * --------------------------------------------------------
- *
- * These are individual small streaks placed around the
- * perimeter. They do NOT cross the artwork.
- */
-
-
-/* TOP LEFT */
-
-#foilOverlay.surge-foil{
-    background:
-
-        linear-gradient(
-            153deg,
-            transparent 0%,
-            transparent 4%,
-            rgba(0,220,255,.0) 5%,
-            rgba(0,220,255,.9) 5.4%,
-            rgba(255,255,255,1) 5.7%,
-            rgba(0,220,255,.7) 6%,
-            transparent 6.5%,
-            transparent 9%,
-            rgba(80,80,255,.0) 9.5%,
-            rgba(80,80,255,.8) 10%,
-            rgba(255,255,255,.9) 10.3%,
-            rgba(80,80,255,.6) 10.7%,
-            transparent 11.3%,
-            transparent 100%
-        ),
-
-        linear-gradient(
-            27deg,
+            130deg,
             transparent 0%,
             transparent 18%,
-            rgba(255,30,120,0) 18.5%,
-            rgba(255,30,120,.85) 19%,
-            rgba(255,255,255,1) 19.4%,
-            rgba(255,30,120,.7) 19.8%,
-            transparent 20.5%,
-            transparent 24%,
-            rgba(255,170,0,0) 24.5%,
-            rgba(255,170,0,.85) 25%,
-            rgba(255,255,255,.9) 25.4%,
-            rgba(255,170,0,.65) 25.8%,
-            transparent 26.5%,
+            rgba(255,210,0,.80) 19%,
+            rgba(255,210,0,.80) 20%,
+            transparent 21%,
+
+            transparent 25%,
+            rgba(255,210,0,.75) 26%,
+            rgba(255,210,0,.75) 27%,
+            transparent 28%,
+
             transparent 100%
         ),
 
+        /* STREAK F */
         linear-gradient(
-            205deg,
+            122deg,
             transparent 0%,
-            transparent 67%,
-            rgba(0,255,150,0) 67.5%,
-            rgba(0,255,150,.8) 68%,
-            rgba(255,255,255,.9) 68.4%,
-            rgba(0,255,150,.65) 68.8%,
-            transparent 69.5%,
-            transparent 74%,
-            rgba(0,180,255,0) 74.5%,
-            rgba(0,180,255,.85) 75%,
-            rgba(255,255,255,.9) 75.4%,
-            rgba(0,180,255,.6) 75.8%,
-            transparent 76.5%,
+            transparent 43%,
+            rgba(0,190,255,.80) 44%,
+            rgba(0,190,255,.80) 45%,
+            transparent 46%,
+
+            transparent 49%,
+            rgba(0,190,255,.75) 50%,
+            rgba(0,190,255,.75) 51%,
+            transparent 52%,
+
             transparent 100%
         ),
 
+        /* STREAK G */
         linear-gradient(
-            331deg,
+            135deg,
             transparent 0%,
-            transparent 82%,
-            rgba(190,30,255,0) 82.5%,
-            rgba(190,30,255,.85) 83%,
-            rgba(255,255,255,1) 83.4%,
-            rgba(190,30,255,.65) 83.8%,
-            transparent 84.5%,
+            transparent 63%,
+            rgba(255,0,150,.80) 64%,
+            rgba(255,0,150,.80) 65%,
+            transparent 66%,
+
+            transparent 70%,
+            rgba(255,0,150,.75) 71%,
+            rgba(255,0,150,.75) 72%,
+            transparent 73%,
+
+            transparent 100%
+        ),
+
+        /* STREAK H */
+        linear-gradient(
+            128deg,
+            transparent 0%,
+            transparent 83%,
+            rgba(80,100,255,.80) 84%,
+            rgba(80,100,255,.80) 85%,
+            transparent 86%,
+
+            transparent 89%,
+            rgba(80,100,255,.75) 90%,
+            rgba(80,100,255,.75) 91%,
+            transparent 92%,
+
             transparent 100%
         );
 
-    background-size:
-        180% 180%,
-        210% 210%,
-        190% 190%,
-        230% 230%;
-
-    background-position:
-        0% 0%,
-        100% 20%,
-        20% 100%,
-        80% 80%;
+    background-size:230% 230%;
 
     filter:
-        blur(.7px)
-        saturate(1.8);
+        blur(1px)
+        saturate(1.35)
+        hue-rotate(120deg);
 
-    opacity:.65;
+    mix-blend-mode:screen;
+    opacity:.55;
 
     animation:
-        surgeElectricMovement 8s ease-in-out infinite alternate,
-        surgeElectricColors 12s linear infinite;
+        surgeFoilLayerTwo 11s ease-in-out infinite alternate;
 }
 
 
 /*
  * --------------------------------------------------------
- * ELECTRIC MOVEMENT
+ * BASE MOVEMENT
  * --------------------------------------------------------
  */
 
-@keyframes surgeElectricMovement{
+@keyframes surgeFoilBase{
 
     0%{
-        background-position:
-            0% 0%,
-            100% 20%,
-            20% 100%,
-            80% 80%;
-    }
-
-    25%{
-        background-position:
-            8% 4%,
-            92% 25%,
-            25% 94%,
-            75% 85%;
+        background-position:0% 50%;
+        filter:
+            saturate(1.05)
+            brightness(.95);
     }
 
     50%{
-        background-position:
-            15% 0%,
-            85% 30%,
-            30% 88%,
-            70% 90%;
-    }
-
-    75%{
-        background-position:
-            8% 5%,
-            94% 25%,
-            24% 94%,
-            76% 84%;
+        background-position:50% 40%;
+        filter:
+            saturate(1.25)
+            brightness(1.03);
     }
 
     100%{
-        background-position:
-            0% 0%,
-            100% 20%,
-            20% 100%,
-            80% 80%;
+        background-position:100% 60%;
+        filter:
+            saturate(1.10)
+            brightness(1);
     }
 }
 
 
 /*
  * --------------------------------------------------------
- * INDIVIDUAL COLOR ROTATION
+ * LAYER ONE COLOR CYCLE
  * --------------------------------------------------------
  */
 
-@keyframes surgeElectricColors{
+@keyframes surgeFoilLayerOne{
 
     0%{
+        background-position:0% 100%;
         filter:
-            blur(.7px)
-            saturate(1.8)
+            blur(1px)
+            saturate(1.25)
             hue-rotate(0deg);
+        transform:translate(-3%,2%);
     }
 
-    20%{
+    50%{
+        background-position:50% 50%;
         filter:
-            blur(.7px)
-            saturate(2)
-            hue-rotate(72deg);
-    }
-
-    40%{
-        filter:
-            blur(.7px)
-            saturate(2)
-            hue-rotate(144deg);
-    }
-
-    60%{
-        filter:
-            blur(.7px)
-            saturate(2)
-            hue-rotate(216deg);
-    }
-
-    80%{
-        filter:
-            blur(.7px)
-            saturate(2)
-            hue-rotate(288deg);
+            blur(1px)
+            saturate(1.35)
+            hue-rotate(120deg);
+        transform:translate(0%,-1%);
     }
 
     100%{
+        background-position:100% 0%;
         filter:
-            blur(.7px)
-            saturate(1.8)
+            blur(1px)
+            saturate(1.30)
+            hue-rotate(240deg);
+        transform:translate(3%,1%);
+    }
+}
+
+
+/*
+ * --------------------------------------------------------
+ * LAYER TWO COLOR CYCLE
+ * --------------------------------------------------------
+ */
+
+@keyframes surgeFoilLayerTwo{
+
+    0%{
+        background-position:100% 0%;
+        filter:
+            blur(1px)
+            saturate(1.25)
+            hue-rotate(120deg);
+        transform:translate(3%,-1%);
+    }
+
+    50%{
+        background-position:50% 50%;
+        filter:
+            blur(1px)
+            saturate(1.35)
+            hue-rotate(240deg);
+        transform:translate(0%,2%);
+    }
+
+    100%{
+        background-position:0% 100%;
+        filter:
+            blur(1px)
+            saturate(1.30)
             hue-rotate(360deg);
+        transform:translate(-3%,-1%);
     }
 }
