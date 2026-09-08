@@ -15,173 +15,6 @@
     border-radius:15px;
     z-index:10;
 
-    /*
-     * RAINBOW FOIL
-     */
-
-    background:
-        linear-gradient(
-            115deg,
-            #ff004c 0%,
-            #ff7a00 12%,
-            #ffe600 24%,
-            #39ff14 36%,
-            #00eaff 48%,
-            #0066ff 60%,
-            #7a00ff 72%,
-            #ff00d4 84%,
-            #ff004c 100%
-        );
-
-    background-size:220% 220%;
-
-    mix-blend-mode:screen;
-    opacity:.55;
-
-    /*
-     * ZEBRA MASK
-     *
-     * White areas show the rainbow foil.
-     * Black areas hide it completely.
-     */
-
-    -webkit-mask-image:
-        radial-gradient(
-            ellipse 20% 7% at 18% 14%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 35% 9% at 52% 20%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 22% 8% at 82% 13%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 32% 10% at 25% 42%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 20% 7% at 68% 38%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 36% 10% at 88% 52%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 25% 8% at 12% 67%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 38% 11% at 48% 72%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 24% 8% at 82% 82%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        linear-gradient(
-            135deg,
-            #000 0%,
-            #000 100%
-        );
-
-    -webkit-mask-composite:add;
-
-    mask-image:
-        radial-gradient(
-            ellipse 20% 7% at 18% 14%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 35% 9% at 52% 20%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 22% 8% at 82% 13%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 32% 10% at 25% 42%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 20% 7% at 68% 38%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 36% 10% at 88% 52%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 25% 8% at 12% 67%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 38% 11% at 48% 72%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 24% 8% at 82% 82%,
-            #000 0%,
-            #000 55%,
-            transparent 75%
-        );
-
-    mask-composite:add;
-
-    animation:
-        surgeFoilColors 18s linear infinite;
-}
-
-
-/*
- * --------------------------------------------------------
- * SOFT ZEBRA EDGES
- * --------------------------------------------------------
- */
-
-#foilOverlay.surge-foil::before{
-    content:"";
-    position:absolute;
-    inset:-3%;
-
     background:
         linear-gradient(
             115deg,
@@ -198,140 +31,27 @@
 
     background-size:220% 220%;
 
+    mix-blend-mode:screen;
     opacity:.55;
 
-    filter:blur(8px);
-
-    mix-blend-mode:screen;
+    /*
+     * Irregular zebra mask.
+     * White areas reveal the rainbow.
+     * Black areas reveal the original card.
+     */
 
     -webkit-mask-image:
-        radial-gradient(
-            ellipse 20% 7% at 18% 14%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 35% 9% at 52% 20%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 22% 8% at 82% 13%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 32% 10% at 25% 42%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 20% 7% at 68% 38%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 36% 10% at 88% 52%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 25% 8% at 12% 67%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 38% 11% at 48% 72%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 24% 8% at 82% 82%,
-            #000 25%,
-            transparent 78%
-        );
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1400'%3E%3Crect width='1000' height='1400' fill='black'/%3E%3Cg fill='white'%3E%3Cpath d='M-80 40 L180 0 250 70 210 145 120 125 45 190 -40 155Z'/%3E%3Cpath d='M350 -40 L590 30 625 105 575 170 490 145 420 205 335 155 370 90Z'/%3E%3Cpath d='M760 30 L1040 0 1080 120 1015 175 930 145 870 205 790 160 820 95Z'/%3E%3Cpath d='M-70 285 L110 225 205 270 180 345 110 380 40 350 -30 410Z'/%3E%3Cpath d='M300 250 L430 205 520 260 485 330 420 350 365 420 285 375 325 315Z'/%3E%3Cpath d='M650 300 L790 245 875 285 850 355 780 375 720 445 640 395 675 345Z'/%3E%3Cpath d='M910 410 L1060 350 1080 470 1015 525 950 500 885 555 830 510Z'/%3E%3Cpath d='M-80 535 L70 470 150 520 125 600 55 625 -20 690 -85 640Z'/%3E%3Cpath d='M270 510 L390 465 480 515 455 590 380 615 325 680 250 630 300 565Z'/%3E%3Cpath d='M560 575 L700 500 805 545 775 625 705 650 650 720 535 670Z'/%3E%3Cpath d='M850 680 L1035 610 1080 700 1010 770 935 745 875 815 805 755Z'/%3E%3Cpath d='M-60 800 L100 735 205 785 170 860 100 885 35 950 -45 910Z'/%3E%3Cpath d='M330 760 L465 705 560 755 525 835 455 850 395 925 310 870Z'/%3E%3Cpath d='M620 850 L755 775 865 825 830 900 755 925 700 1000 595 950Z'/%3E%3Cpath d='M900 965 L1050 900 1080 1015 1000 1070 940 1045 875 1110 820 1050Z'/%3E%3Cpath d='M-80 1080 L85 1015 180 1060 150 1140 80 1165 15 1235 -55 1190Z'/%3E%3Cpath d='M280 1040 L420 985 515 1040 480 1115 410 1140 350 1210 260 1160Z'/%3E%3Cpath d='M570 1120 L720 1040 820 1090 790 1170 715 1195 650 1270 550 1215Z'/%3E%3Cpath d='M850 1240 L1030 1165 1080 1280 1010 1340 940 1310 875 1380 800 1320Z'/%3E%3Cpath d='M180 1320 L330 1250 425 1300 390 1380 300 1410 220 1380Z'/%3E%3C/g%3E%3C/svg%3E");
 
     mask-image:
-        radial-gradient(
-            ellipse 20% 7% at 18% 14%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 35% 9% at 52% 20%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 22% 8% at 82% 13%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 32% 10% at 25% 42%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 20% 7% at 68% 38%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 36% 10% at 88% 52%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 25% 8% at 12% 67%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 38% 11% at 48% 72%,
-            #000 25%,
-            transparent 78%
-        ),
-        radial-gradient(
-            ellipse 24% 8% at 82% 82%,
-            #000 25%,
-            transparent 78%
-        );
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1400'%3E%3Crect width='1000' height='1400' fill='black'/%3E%3Cg fill='white'%3E%3Cpath d='M-80 40 L180 0 250 70 210 145 120 125 45 190 -40 155Z'/%3E%3Cpath d='M350 -40 L590 30 625 105 575 170 490 145 420 205 335 155 370 90Z'/%3E%3Cpath d='M760 30 L1040 0 1080 120 1015 175 930 145 870 205 790 160 820 95Z'/%3E%3Cpath d='M-70 285 L110 225 205 270 180 345 110 380 40 350 -30 410Z'/%3E%3Cpath d='M300 250 L430 205 520 260 485 330 420 350 365 420 285 375 325 315Z'/%3E%3Cpath d='M650 300 L790 245 875 285 850 355 780 375 720 445 640 395 675 345Z'/%3E%3Cpath d='M910 410 L1060 350 1080 470 1015 525 950 500 885 555 830 510Z'/%3E%3Cpath d='M-80 535 L70 470 150 520 125 600 55 625 -20 690 -85 640Z'/%3E%3Cpath d='M270 510 L390 465 480 515 455 590 380 615 325 680 250 630 300 565Z'/%3E%3Cpath d='M560 575 L700 500 805 545 775 625 705 650 650 720 535 670Z'/%3E%3Cpath d='M850 680 L1035 610 1080 700 1010 770 935 745 875 815 805 755Z'/%3E%3Cpath d='M-60 800 L100 735 205 785 170 860 100 885 35 950 -45 910Z'/%3E%3Cpath d='M330 760 L465 705 560 755 525 835 455 850 395 925 310 870Z'/%3E%3Cpath d='M620 850 L755 775 865 825 830 900 755 925 700 1000 595 950Z'/%3E%3Cpath d='M900 965 L1050 900 1080 1015 1000 1070 940 1045 875 1110 820 1050Z'/%3E%3Cpath d='M-80 1080 L85 1015 180 1060 150 1140 80 1165 15 1235 -55 1190Z'/%3E%3Cpath d='M280 1040 L420 985 515 1040 480 1115 410 1140 350 1210 260 1160Z'/%3E%3Cpath d='M570 1120 L720 1040 820 1090 790 1170 715 1195 650 1270 550 1215Z'/%3E%3Cpath d='M850 1240 L1030 1165 1080 1280 1010 1340 940 1310 875 1380 800 1320Z'/%3E%3Cpath d='M180 1320 L330 1250 425 1300 390 1380 300 1410 220 1380Z'/%3E%3C/g%3E%3C/svg%3E");
+
+    -webkit-mask-size:100% 100%;
+    mask-size:100% 100%;
+
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
 
     animation:
-        surgeFoilColors 18s linear infinite reverse;
-}
-
-
-/*
- * --------------------------------------------------------
- * COLOR MOVEMENT
- * --------------------------------------------------------
- */
-
-@keyframes surgeFoilColors{
-
-    0%{
-        background-position:
-            0% 50%;
-        transform:
-            translate(-2%, 0)
-            rotate(-1deg);
-    }
-
-    50%{
-        background-position:
-            50% 45%;
-        transform:
-            translate(0%, 1%)
-            rotate(0deg);
-    }
-
-    100%{
-        background-position:
-            100% 50%;
-        transform:
-            translate(2%, 0)
-            rotate(1deg);
-    }
+        surgeFoilColors 8s linear infinite;
 }
