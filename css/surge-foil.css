@@ -16,28 +16,21 @@
     z-index:10;
 
     background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 840'%3E%3Cdefs%3E%3ClinearGradient id='rainbow' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%2300d9ff'/%3E%3Cstop offset='18%25' stop-color='%234b45ff'/%3E%3Cstop offset='36%25' stop-color='%23d52cff'/%3E%3Cstop offset='52%25' stop-color='%23ff277e'/%3E%3Cstop offset='68%25' stop-color='%23ffb300'/%3E%3Cstop offset='84%25' stop-color='%23aaff00'/%3E%3Cstop offset='100%25' stop-color='%2300eaff'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='url(%23rainbow)'%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M-40 150 L20 105 L58 116 L105 70 L145 83 L185 35 L225 50 L265 5 L285 18 L235 70 L195 58 L155 105 L115 92 L72 140 L30 128 L-20 175 Z'/%3E%3Cpath d='M-40 150 L20 105 L58 116 L105 70 L145 83 L185 35 L225 50 L265 5 L285 18 L235 70 L195 58 L155 105 L115 92 L72 140 L30 128 L-20 175 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M40 260 L92 220 L125 232 L165 184 L202 198 L245 150 L278 163 L320 112 L338 128 L294 180 L260 168 L218 214 L182 203 L140 248 L108 236 L55 278 Z'/%3E%3Cpath d='M40 260 L92 220 L125 232 L165 184 L202 198 L245 150 L278 163 L320 112 L338 128 L294 180 L260 168 L218 214 L182 203 L140 248 L108 236 L55 278 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M-15 355 L38 310 L72 324 L115 276 L150 291 L190 242 L226 257 L270 205 L290 220 L244 274 L208 262 L168 310 L132 296 L90 343 L55 330 L5 372 Z'/%3E%3Cpath d='M-15 355 L38 310 L72 324 L115 276 L150 291 L190 242 L226 257 L270 205 L290 220 L244 274 L208 262 L168 310 L132 296 L90 343 L55 330 L5 372 Z'/%3E%3Cpath opacity='.24' filter='url(%23glow)' d='M150 390 L198 348 L232 360 L272 313 L308 327 L350 278 L384 291 L425 244 L445 260 L402 310 L368 298 L328 344 L292 333 L250 378 L216 366 L168 408 Z'/%3E%3Cpath d='M150 390 L198 348 L232 360 L272 313 L308 327 L350 278 L384 291 L425 244 L445 260 L402 310 L368 298 L328 344 L292 333 L250 378 L216 366 L168 408 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M285 485 L332 442 L366 455 L407 408 L442 421 L483 374 L520 387 L562 338 L585 354 L542 405 L505 393 L464 438 L429 426 L388 472 L354 460 L304 502 Z'/%3E%3Cpath d='M285 485 L332 442 L366 455 L407 408 L442 421 L483 374 L520 387 L562 338 L585 354 L542 405 L505 393 L464 438 L429 426 L388 472 L354 460 L304 502 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M15 505 L65 462 L98 475 L138 430 L174 443 L214 396 L250 410 L292 360 L310 376 L267 426 L231 414 L191 459 L156 447 L116 493 L82 481 L32 522 Z'/%3E%3Cpath d='M15 505 L65 462 L98 475 L138 430 L174 443 L214 396 L250 410 L292 360 L310 376 L267 426 L231 414 L191 459 L156 447 L116 493 L82 481 L32 522 Z'/%3E%3Cpath opacity='.24' filter='url(%23glow)' d='M110 610 L160 566 L194 579 L235 532 L270 545 L312 497 L347 510 L388 462 L410 478 L367 528 L332 516 L290 562 L255 550 L214 597 L180 585 L130 626 Z'/%3E%3Cpath d='M110 610 L160 566 L194 579 L235 532 L270 545 L312 497 L347 510 L388 462 L410 478 L367 528 L332 516 L290 562 L255 550 L214 597 L180 585 L130 626 Z'/%3E%3Cpath opacity='.22' filter='url(%23glow)' d='M300 690 L350 646 L384 659 L425 612 L460 625 L502 578 L538 591 L580 543 L605 560 L563 610 L527 598 L486 644 L450 632 L409 678 L375 666 L325 707 Z'/%3E%3Cpath d='M300 690 L350 646 L384 659 L425 612 L460 625 L502 578 L538 591 L580 543 L605 560 L563 610 L527 598 L486 644 L450 632 L409 678 L375 666 L325 707 Z'/%3E%3Cpath opacity='.20' filter='url(%23glow)' d='M-20 700 L28 657 L62 670 L103 623 L138 636 L180 588 L215 601 L257 553 L278 569 L235 619 L200 607 L158 653 L123 641 L82 687 L48 675 L-2 716 Z'/%3E%3Cpath d='M-20 700 L28 657 L62 670 L103 623 L138 636 L180 588 L215 601 L257 553 L278 569 L235 619 L200 607 L158 653 L123 641 L82 687 L48 675 L-2 716 Z'/%3E%3Cpath opacity='.23' filter='url(%23glow)' d='M210 805 L260 761 L294 774 L335 727 L370 740 L412 693 L447 706 L490 658 L510 674 L468 724 L432 712 L390 758 L355 746 L314 793 L280 781 L230 822 Z'/%3E%3Cpath d='M210 805 L260 761 L294 774 L335 727 L370 740 L412 693 L447 706 L490 658 L510 674 L468 724 L432 712 L390 758 L355 746 L314 793 L280 781 L230 822 Z'/%3E%3C/g%3E%3Cg fill='white' opacity='.75'%3E%3Cpath d='M20 126 L70 91 L82 95 L34 134 Z'/%3E%3Cpath d='M175 49 L218 18 L230 22 L188 57 Z'/%3E%3Cpath d='M95 243 L142 202 L153 206 L108 250 Z'/%3E%3Cpath d='M250 368 L292 329 L304 333 L264 375 Z'/%3E%3Cpath d='M350 460 L397 418 L408 423 L366 468 Z'/%3E%3Cpath d='M50 475 L94 437 L105 441 L64 483 Z'/%3E%3Cpath d='M160 580 L205 540 L217 544 L175 589 Z'/%3E%3Cpath d='M430 620 L476 578 L488 583 L445 629 Z'/%3E%3Cpath d='M260 770 L305 730 L317 735 L275 779 Z'/%3E%3C/g%3E%3C/svg%3E");
-
-    background-size:100% 100%;
-    background-position:center;
-    background-repeat:no-repeat;
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.12),
+            rgba(255,255,255,.04),
+            rgba(0,0,0,.18)
+        );
 
     mix-blend-mode:screen;
-
-    opacity:.58;
-
-    filter:
-        saturate(1.7)
-        contrast(1.08);
-
-    animation:
-        surgeFoilColor 14s linear infinite;
+    opacity:.72;
 }
 
 
 /*
  * --------------------------------------------------------
- * SECONDARY FOIL TEXTURE
+ * MAIN SURGE PATTERN
  * --------------------------------------------------------
  */
 
@@ -45,36 +38,27 @@
     content:"";
 
     position:absolute;
-    inset:0;
+    inset:-5%;
 
-    background:
-        repeating-linear-gradient(
-            132deg,
-            transparent 0px,
-            transparent 28px,
-            rgba(255,255,255,.025) 29px,
-            rgba(255,255,255,.08) 31px,
-            rgba(255,255,255,.025) 33px,
-            transparent 35px,
-            transparent 61px
-        );
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 900'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='900' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%236b42ff'/%3E%3Cstop offset='.13' stop-color='%23b44cff'/%3E%3Cstop offset='.25' stop-color='%23ff4ca8'/%3E%3Cstop offset='.38' stop-color='%23ffad32'/%3E%3Cstop offset='.50' stop-color='%23eaff32'/%3E%3Cstop offset='.62' stop-color='%2300e889'/%3E%3Cstop offset='.75' stop-color='%2300d9ff'/%3E%3Cstop offset='.88' stop-color='%234b62ff'/%3E%3Cstop offset='1' stop-color='%2300a9ff'/%3E%3C/linearGradient%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='2.5'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23s)' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='15' opacity='.20' filter='url(%23g)' d='M-50 180 L15 135 L38 148 L82 104 L110 116 L152 67 L181 82 L224 34 L250 48 L207 97 L178 85 L137 130 L108 119 L66 164 L39 153 L-12 195'/%3E%3Cpath stroke-width='5' opacity='.78' d='M-50 180 L15 135 L38 148 L82 104 L110 116 L152 67 L181 82 L224 34 L250 48 L207 97 L178 85 L137 130 L108 119 L66 164 L39 153 L-12 195'/%3E%3Cpath stroke-width='13' opacity='.18' filter='url(%23g)' d='M-20 280 L35 237 L65 251 L106 207 L138 221 L181 173 L211 188 L252 140 L279 154 L237 203 L207 191 L165 237 L134 224 L93 270 L63 258 L12 297'/%3E%3Cpath stroke-width='5' opacity='.72' d='M-20 280 L35 237 L65 251 L106 207 L138 221 L181 173 L211 188 L252 140 L279 154 L237 203 L207 191 L165 237 L134 224 L93 270 L63 258 L12 297'/%3E%3Cpath stroke-width='16' opacity='.18' filter='url(%23g)' d='M35 380 L91 336 L120 349 L162 302 L193 316 L235 268 L267 282 L309 234 L335 249 L293 297 L262 286 L220 332 L189 319 L148 365 L118 353 L67 394'/%3E%3Cpath stroke-width='5' opacity='.76' d='M35 380 L91 336 L120 349 L162 302 L193 316 L235 268 L267 282 L309 234 L335 249 L293 297 L262 286 L220 332 L189 319 L148 365 L118 353 L67 394'/%3E%3Cpath stroke-width='14' opacity='.20' filter='url(%23g)' d='M170 455 L224 411 L253 424 L295 378 L325 391 L368 343 L399 358 L441 309 L468 325 L425 374 L395 362 L353 408 L322 396 L281 442 L251 430 L201 469'/%3E%3Cpath stroke-width='5' opacity='.78' d='M170 455 L224 411 L253 424 L295 378 L325 391 L368 343 L399 358 L441 309 L468 325 L425 374 L395 362 L353 408 L322 396 L281 442 L251 430 L201 469'/%3E%3Cpath stroke-width='15' opacity='.19' filter='url(%23g)' d='M305 545 L360 501 L390 514 L431 468 L463 482 L505 434 L535 448 L578 400 L605 416 L563 465 L533 453 L491 499 L460 487 L419 533 L389 521 L339 560'/%3E%3Cpath stroke-width='5' opacity='.74' d='M305 545 L360 501 L390 514 L431 468 L463 482 L505 434 L535 448 L578 400 L605 416 L563 465 L533 453 L491 499 L460 487 L419 533 L389 521 L339 560'/%3E%3Cpath stroke-width='15' opacity='.20' filter='url(%23g)' d='M-35 555 L20 511 L50 525 L91 479 L122 492 L164 444 L195 459 L237 410 L263 426 L221 475 L191 463 L149 509 L118 497 L77 543 L47 531 L-3 570'/%3E%3Cpath stroke-width='5' opacity='.76' d='M-35 555 L20 511 L50 525 L91 479 L122 492 L164 444 L195 459 L237 410 L263 426 L221 475 L191 463 L149 509 L118 497 L77 543 L47 531 L-3 570'/%3E%3Cpath stroke-width='14' opacity='.18' filter='url(%23g)' d='M105 650 L159 607 L188 620 L230 574 L260 588 L302 540 L333 554 L375 506 L402 522 L360 570 L330 559 L288 605 L257 593 L216 639 L186 627 L136 666'/%3E%3Cpath stroke-width='5' opacity='.75' d='M105 650 L159 607 L188 620 L230 574 L260 588 L302 540 L333 554 L375 506 L402 522 L360 570 L330 559 L288 605 L257 593 L216 639 L186 627 L136 666'/%3E%3Cpath stroke-width='16' opacity='.18' filter='url(%23g)' d='M300 730 L356 686 L386 699 L428 653 L459 666 L501 619 L532 633 L575 585 L603 601 L560 650 L530 638 L488 684 L457 672 L416 718 L386 706 L335 746'/%3E%3Cpath stroke-width='5' opacity='.78' d='M300 730 L356 686 L386 699 L428 653 L459 666 L501 619 L532 633 L575 585 L603 601 L560 650 L530 638 L488 684 L457 672 L416 718 L386 706 L335 746'/%3E%3Cpath stroke-width='14' opacity='.18' filter='url(%23g)' d='M-20 815 L35 772 L65 785 L106 739 L137 752 L180 704 L210 719 L252 671 L279 687 L236 736 L206 724 L165 770 L134 758 L93 804 L63 792 L12 832'/%3E%3Cpath stroke-width='5' opacity='.74' d='M-20 815 L35 772 L65 785 L106 739 L137 752 L180 704 L210 719 L252 671 L279 687 L236 736 L206 724 L165 770 L134 758 L93 804 L63 792 L12 832'/%3E%3Cpath stroke-width='13' opacity='.20' filter='url(%23g)' d='M180 885 L232 842 L262 855 L304 809 L335 822 L377 775 L408 789 L450 742 L477 758 L435 807 L405 795 L363 841 L332 829 L291 875 L261 863 L211 902'/%3E%3Cpath stroke-width='5' opacity='.76' d='M180 885 L232 842 L262 855 L304 809 L335 822 L377 775 L408 789 L450 742 L477 758 L435 807 L405 795 L363 841 L332 829 L291 875 L261 863 L211 902'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size:100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
 
     mix-blend-mode:screen;
 
-    opacity:.35;
-
-    transform:
-        translateX(-2%)
-        translateY(-1%);
-
     animation:
-        surgeFoilTexture 8s ease-in-out infinite alternate;
+        surgePatternMove 18s ease-in-out infinite alternate,
+        surgePatternColor 20s linear infinite;
+
+    opacity:.78;
 }
 
 
 /*
  * --------------------------------------------------------
- * SOFT FOIL REFLECTION
+ * FINE SURGE LINES
  * --------------------------------------------------------
  */
 
@@ -82,96 +66,132 @@
     content:"";
 
     position:absolute;
-    inset:0;
+    inset:-10%;
 
     background:
-        linear-gradient(
-            115deg,
-            transparent 15%,
-            rgba(255,255,255,.02) 35%,
-            rgba(255,255,255,.12) 48%,
-            rgba(255,255,255,.02) 58%,
-            transparent 78%
+        repeating-linear-gradient(
+            132deg,
+            transparent 0px,
+            transparent 17px,
+            rgba(0,210,255,.16) 18px,
+            rgba(255,255,255,.22) 20px,
+            rgba(255,90,190,.13) 22px,
+            transparent 24px,
+            transparent 42px
         );
-
-    background-size:250% 250%;
 
     mix-blend-mode:screen;
 
-    opacity:.30;
+    opacity:.42;
 
-    filter:blur(8px);
+    transform:
+        scale(1.12);
+
+    filter:
+        blur(.45px);
 
     animation:
-        surgeFoilReflection 8s ease-in-out infinite alternate;
+        surgeFineMovement 11s ease-in-out infinite alternate,
+        surgeFineColor 17s linear infinite;
 }
 
 
 /*
  * --------------------------------------------------------
- * COLOR MOVEMENT
+ * PATTERN MOVEMENT
  * --------------------------------------------------------
  */
 
-@keyframes surgeFoilColor{
+@keyframes surgePatternMove{
+
+    0%{
+        transform:
+            translate(-2%,-1%)
+            scale(1.04);
+    }
+
+    50%{
+        transform:
+            translate(1%,1%)
+            scale(1.07);
+    }
+
+    100%{
+        transform:
+            translate(2%,-1%)
+            scale(1.04);
+    }
+}
+
+
+/*
+ * --------------------------------------------------------
+ * PATTERN COLOR
+ * --------------------------------------------------------
+ */
+
+@keyframes surgePatternColor{
 
     0%{
         filter:
-            saturate(1.7)
-            contrast(1.08)
+            saturate(1.35)
+            brightness(.90)
             hue-rotate(0deg);
     }
 
     25%{
         filter:
-            saturate(1.9)
-            contrast(1.1)
-            hue-rotate(70deg);
+            saturate(1.55)
+            brightness(.98)
+            hue-rotate(35deg);
     }
 
     50%{
         filter:
-            saturate(2)
-            contrast(1.08)
-            hue-rotate(140deg);
+            saturate(1.45)
+            brightness(.94)
+            hue-rotate(70deg);
     }
 
     75%{
         filter:
-            saturate(1.9)
-            contrast(1.1)
-            hue-rotate(210deg);
+            saturate(1.55)
+            brightness(.98)
+            hue-rotate(35deg);
     }
 
     100%{
         filter:
-            saturate(1.7)
-            contrast(1.08)
-            hue-rotate(360deg);
+            saturate(1.35)
+            brightness(.90)
+            hue-rotate(0deg);
     }
 }
 
 
 /*
  * --------------------------------------------------------
- * TEXTURE MOVEMENT
+ * FINE LINE MOVEMENT
  * --------------------------------------------------------
  */
 
-@keyframes surgeFoilTexture{
+@keyframes surgeFineMovement{
 
     0%{
         transform:
-            translate(-2%,-1%);
+            scale(1.12)
+            translate(-3%,2%);
     }
 
     50%{
         transform:
-            translate(2%,1%);
+            scale(1.14)
+            translate(2%,-1%);
     }
 
     100%{
         transform:
+            scale(1.12)
             translate(-1%,2%);
     }
 }
@@ -179,27 +199,30 @@
 
 /*
  * --------------------------------------------------------
- * REFLECTION MOVEMENT
+ * FINE LINE COLOR
  * --------------------------------------------------------
  */
 
-@keyframes surgeFoilReflection{
+@keyframes surgeFineColor{
 
     0%{
-        background-position:
-            0% 50%;
-        opacity:.18;
+        filter:
+            blur(.45px)
+            saturate(1.2)
+            hue-rotate(0deg);
     }
 
     50%{
-        background-position:
-            100% 50%;
-        opacity:.35;
+        filter:
+            blur(.45px)
+            saturate(1.5)
+            hue-rotate(90deg);
     }
 
     100%{
-        background-position:
-            0% 50%;
-        opacity:.18;
+        filter:
+            blur(.45px)
+            saturate(1.2)
+            hue-rotate(180deg);
     }
 }
