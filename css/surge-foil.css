@@ -59,6 +59,31 @@
         surgeFoilColors 5s linear infinite;
 }
 
+#foilOverlay.surge-foil::after{
+    content:"";
+    position:absolute;
+
+    top:-50%;
+    left:-100%;
+
+    width:35%;
+    height:200%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.05) 35%,
+            rgba(255,255,255,.55) 50%,
+            rgba(255,255,255,.05) 65%,
+            transparent 100%
+        );
+
+    filter:blur(10px);
+    mix-blend-mode:screen;
+
+    animation:surgeFoilReflection 5s linear infinite;
+}
 
 /*
  * --------------------------------------------------------
@@ -86,5 +111,32 @@
 
     100%{
         background-position:0% 50%;
+    }
+}
+
+
+@keyframes surgeFoilReflection{
+
+    0%{
+        left:-100%;
+        opacity:.1;
+    }
+
+    40%{
+        opacity:.35;
+    }
+
+    50%{
+        left:40%;
+        opacity:.55;
+    }
+
+    60%{
+        opacity:.35;
+    }
+
+    100%{
+        left:120%;
+        opacity:.1;
     }
 }
