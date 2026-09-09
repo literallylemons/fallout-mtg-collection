@@ -132,6 +132,30 @@ body{
     padding-bottom:20px;
 }
 
+#cardGrid::-webkit-scrollbar{
+    width:10px;
+}
+
+#cardGrid::-webkit-scrollbar-track{
+    background:#020502;
+    border-left:1px solid var(--terminal-green);
+}
+
+#cardGrid::-webkit-scrollbar-thumb{
+    background:var(--terminal-green);
+    border:2px solid #020502;
+    box-shadow:
+        0 0 5px var(--terminal-green),
+        0 0 10px var(--terminal-green-glow);
+}
+
+#cardGrid::-webkit-scrollbar-thumb:hover{
+    background:#d0ffd0;
+    box-shadow:
+        0 0 8px var(--terminal-green),
+        0 0 15px var(--terminal-green-glow);
+}
+    
 /* CARD */
 
 .card{
