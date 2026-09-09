@@ -20,23 +20,25 @@
      */
 
     background:
-        repeating-linear-gradient(
+        linear-gradient(
             45deg,
-            #ff003c 0px,
-            #ff4d00 25px,
-            #ff9d00 50px,
-            #ffe600 75px,
-            #80ff00 100px,
-            #00eaff 125px,
-            #0066ff 150px,
-            #4b00ff 175px,
-            #8a00ff 200px,
-            #d000ff 225px,
-            #ff00d4 245px,
-            #ff003c 270px
+            #ff003c 0%,
+            #ff4d00 8%,
+            #ff9d00 16%,
+            #ffe600 24%,
+            #80ff00 32%,
+            #00eaff 40%,
+            #0066ff 48%,
+            #4b00ff 56%,
+            #8a00ff 64%,
+            #d000ff 72%,
+            #ff00d4 80%,
+            #ff003c 88%,
+            #ff4d00 96%,
+            #ff003c 100%
         );
     
-    background-size:540px 540px;
+    background-size:200% 200%;
     mix-blend-mode:screen;
     opacity:.55;
 
@@ -59,7 +61,7 @@
     mask-size:100% 100%;
 
     animation:
-        surgeFoilColors 3s linear infinite;
+        surgeFoilColors 5s linear infinite;
 }
 
 
@@ -71,9 +73,17 @@
 
 @keyframes surgeFoilColors{
     0%{
-        background-position:0px 0px;
+        background-position:0% 0%;
+        filter:hue-rotate(0deg);
     }
+
+    50%{
+        background-position:100% 100%;
+        filter:hue-rotate(120deg);
+    }
+
     100%{
-        background-position:270px 270px;
+        background-position:0% 0%;
+        filter:hue-rotate(240deg);
     }
 }
