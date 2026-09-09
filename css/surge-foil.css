@@ -21,24 +21,19 @@
 
     background:
         linear-gradient(
-            45deg,
+            120deg,
             #ff003c 0%,
-            #ff4d00 8%,
-            #ff9d00 16%,
-            #ffe600 24%,
-            #80ff00 32%,
-            #00eaff 40%,
-            #0066ff 48%,
-            #4b00ff 56%,
-            #8a00ff 64%,
-            #d000ff 72%,
-            #ff00d4 80%,
-            #ff003c 88%,
-            #ff4d00 96%,
-            #ff003c 100%
+            #ff7a00 14%,
+            #ffe600 28%,
+            #35ff00 42%,
+            #00eaff 56%,
+            #0066ff 70%,
+            #7a00ff 84%,
+            #ff00d4 100%
         );
-    
+
     background-size:200% 200%;
+
     mix-blend-mode:screen;
     opacity:.55;
 
@@ -61,7 +56,7 @@
     mask-size:100% 100%;
 
     animation:
-        surgeFoilColors 5s linear infinite;
+        surgeFoilColors 8s linear infinite;
 }
 
 
@@ -72,18 +67,24 @@
  */
 
 @keyframes surgeFoilColors{
+
     0%{
-        background-position:0% 0%;
-        filter:hue-rotate(0deg);
+        background-position:0% 50%;
+    }
+
+    25%{
+        background-position:35% 45%;
     }
 
     50%{
-        background-position:100% 100%;
-        filter:hue-rotate(120deg);
+        background-position:70% 55%;
+    }
+
+    75%{
+        background-position:100% 45%;
     }
 
     100%{
-        background-position:0% 0%;
-        filter:hue-rotate(240deg);
+        background-position:0% 50%;
     }
 }
