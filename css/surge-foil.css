@@ -96,11 +96,10 @@
 
 @keyframes surgeFoilColors{
     0%{background-position:0% 50%}
-    20%{background-position:50% 20%}
-    40%{background-position:100% 50%}
-    60%{background-position:50% 80%}
-    80%{background-position:0% 50%}
-    100%{background-position:100% 20%}
+    25%{background-position:50% 15%}
+    50%{background-position:100% 50%}
+    75%{background-position:50% 85%}
+    100%{background-position:0% 50%}
 }
 
 
