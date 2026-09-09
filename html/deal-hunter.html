@@ -84,18 +84,6 @@ body{
     box-shadow:0 0 10px var(--terminal-green-glow);
 }
 
-.controls select:hover,
-.controls button:hover,
-.controls select:focus,
-.controls button:focus{
-    background:var(--terminal-green);
-    color:#020502;
-    outline:none;
-    text-shadow:none;
-    box-shadow:0 0 10px var(--terminal-green-glow);
-}
-
-
 /* SCANNER */
 
 #scanner{
@@ -124,6 +112,8 @@ body{
     max-width:100%;
     margin:0 auto 20px;
     border:2px solid var(--terminal-green);
+    border-radius:17px;
+    overflow:hidden;
     box-shadow:
         0 0 5px var(--terminal-green),
         0 0 12px var(--terminal-green-glow);
@@ -146,6 +136,35 @@ body{
     z-index:2;
 }
 
+#foilGlint{
+    position:absolute;
+    top:-50%;
+    left:-100%;
+
+    width:35%;
+    height:200%;
+
+    display:none;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.05) 35%,
+            rgba(255,255,255,.55) 50%,
+            rgba(255,255,255,.05) 65%,
+            transparent 100%
+        );
+
+    filter:blur(10px);
+    mix-blend-mode:screen;
+
+    z-index:20;
+
+    animation:surgeFoilReflection 5s linear infinite;
+}
+        
 .card-name{
     font-size:22px;
     font-weight:bold;
@@ -951,8 +970,8 @@ function revealTarget(target) {
     const image =
         document.getElementById("cardImage");
     
-    const foilOverlay =
-        document.getElementById("foilOverlay");
+    const foilOverlay = document.getElementById("foilOverlay");
+    const foilGlint = document.getElementById("foilGlint");
     
     
     if (imageUrl) {
@@ -974,7 +993,7 @@ function revealTarget(target) {
          */
     
         if (target.finish === "Standard Foil") {
-
+        
             foilOverlay.className =
                 "standard-foil";
         
@@ -984,8 +1003,10 @@ function revealTarget(target) {
             foilOverlay.style.display =
                 "block";
         
-        }
+            foilGlint.style.display =
+                "none";
         
+        }
         else if (target.finish === "Rainbow Foil") {
         
             foilOverlay.className =
@@ -997,8 +1018,10 @@ function revealTarget(target) {
             foilOverlay.style.display =
                 "block";
         
-        }
+            foilGlint.style.display =
+                "none";
         
+        }
         else if (target.finish === "Surge Foil") {
         
             foilOverlay.className =
@@ -1010,34 +1033,45 @@ function revealTarget(target) {
             foilOverlay.style.display =
                 "block";
         
+            foilGlint.style.display =
+                "block";
+        
+        }
+                else {
+        
+            foilOverlay.className =
+                "";
+        
+            foilOverlay.innerHTML =
+                "";
+        
+            foilOverlay.style.display =
+                "none";
+        
+            foilGlint.style.display =
+                "none";
+        
         }
 
-else {
-
-    foilOverlay.className =
-        "";
-
-    foilOverlay.innerHTML =
-        "";
-
-    foilOverlay.style.display =
-        "none";
-
-}
-    
     }
-    
+
     else {
-    
+        
         image.style.display =
             "none";
-    
+        
         foilOverlay.className =
             "";
-    
+        
+        foilOverlay.innerHTML =
+            "";
+        
         foilOverlay.style.display =
             "none";
-    
+        
+        foilGlint.style.display =
+            "none";
+        
     }
 
 
