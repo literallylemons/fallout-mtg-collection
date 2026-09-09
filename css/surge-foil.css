@@ -59,10 +59,8 @@
         surgeFoilColors 5s linear infinite;
 }
 
-#foilOverlay.surge-foil::after{
-    content:"";
+#foilGlint{
     position:absolute;
-
     top:-50%;
     left:-100%;
 
@@ -82,9 +80,11 @@
     filter:blur(10px);
     mix-blend-mode:screen;
 
+    pointer-events:none;
+    z-index:20;
+
     animation:surgeFoilReflection 5s linear infinite;
 }
-
 /*
  * --------------------------------------------------------
  * RAINBOW MOVEMENT
