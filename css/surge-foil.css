@@ -21,7 +21,7 @@
 
     background:
         linear-gradient(
-            120deg,
+            50deg,
             #ff003c 0%,
             #ff7a00 14%,
             #ffe600 28%,
@@ -56,7 +56,7 @@
     mask-size:100% 100%;
 
     animation:
-        surgeFoilColors 8s linear infinite;
+        surgeFoilColors 5s linear infinite;
 }
 
 
