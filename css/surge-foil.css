@@ -2,7 +2,7 @@
  * --------------------------------------------------------
  * SURGE FOIL
  * --------------------------------------------------------
- */
+ *
 
 #foilOverlay.surge-foil{
     position:absolute;
@@ -48,37 +48,15 @@
 
     -webkit-mask-image:url("../images/surge-mask.svg");
     mask-image:url("../images/surge-mask.svg");
-
+        
     -webkit-mask-repeat:no-repeat;
     mask-repeat:no-repeat;
 
     -webkit-mask-size:100% 100%;
     mask-size:100% 100%;
 
-    /*
-     * ----------------------------------------------------
-     * DEFORMATION
-     * ----------------------------------------------------
-     *
-     * The 54.462 degree rotations align the transform
-     * with the diagonal from the top left corner to the
-     * bottom right corner.
-     *
-     * The skew happens while that diagonal is horizontal.
-     *
-     * Therefore:
-     *
-     * Top left     = pinned
-     * Bottom right = pinned
-     * Top right    = moves
-     * Bottom left  = moves
-     */
-
-    transform-origin:0 0;
-
     animation:
-        surgeFoilColors 5s linear infinite,
-        surgeFoilDeform 7s ease-in-out infinite;
+        surgeFoilColors 5s linear infinite;
 }
 
 
@@ -108,61 +86,5 @@
 
     100%{
         background-position:0% 50%;
-    }
-}
-
-
-/*
- * --------------------------------------------------------
- * ZEBRA DEFORMATION
- * --------------------------------------------------------
- *
- * 54.462 degrees is the angle of the diagonal from
- * (0,0) to (1000,1400).
- *
- * The transform sequence is:
- *
- * 1. Rotate the diagonal onto the horizontal axis.
- * 2. Skew vertically.
- * 3. Rotate everything back.
- *
- * The diagonal therefore acts like a hinge.
- */
-
-@keyframes surgeFoilDeform{
-
-    0%{
-        transform:
-            rotate(54.462deg)
-            skewY(-10deg)
-            rotate(-54.462deg);
-    }
-
-    25%{
-        transform:
-            rotate(54.462deg)
-            skewY(-5deg)
-            rotate(-54.462deg);
-    }
-
-    50%{
-        transform:
-            rotate(54.462deg)
-            skewY(10deg)
-            rotate(-54.462deg);
-    }
-
-    75%{
-        transform:
-            rotate(54.462deg)
-            skewY(5deg)
-            rotate(-54.462deg);
-    }
-
-    100%{
-        transform:
-            rotate(54.462deg)
-            skewY(-10deg)
-            rotate(-54.462deg);
     }
 }
