@@ -23,16 +23,18 @@
         linear-gradient(
             225deg,
             #ff003c 0%,
-            #ff7a00 14%,
-            #ffe600 28%,
-            #35ff00 42%,
-            #00eaff 56%,
+            #ff003c 10%,
+            #ff7a00 20%,
+            #ffe600 32%,
+            #35ff00 45%,
+            #00eaff 58%,
             #0066ff 70%,
-            #7a00ff 84%,
-            #ff00d4 100%
+            #7a00ff 82%,
+            #ff00d4 92%,
+            #ff003c 100%
         );
 
-    background-size:200% 200%;
+    background-size:300% 300%;
 
     mix-blend-mode:screen;
     opacity:.95;
@@ -85,6 +87,7 @@
 
     animation:surgeFoilReflection 5s linear infinite;
 }
+
 /*
  * --------------------------------------------------------
  * RAINBOW MOVEMENT
@@ -92,26 +95,12 @@
  */
 
 @keyframes surgeFoilColors{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    25%{
-        background-position:35% 45%;
-    }
-
-    50%{
-        background-position:70% 55%;
-    }
-
-    75%{
-        background-position:100% 45%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
+    0%{background-position:0% 50%}
+    20%{background-position:50% 20%}
+    40%{background-position:100% 50%}
+    60%{background-position:50% 80%}
+    80%{background-position:0% 50%}
+    100%{background-position:100% 20%}
 }
 
 
