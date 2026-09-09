@@ -20,19 +20,19 @@
      */
 
     background:
-        linear-gradient(
-            120deg,
-            #ff003c 0%,
-            #ff7a00 14%,
-            #ffe600 28%,
-            #35ff00 42%,
-            #00eaff 56%,
-            #0066ff 70%,
-            #7a00ff 84%,
-            #ff00d4 100%
+        repeating-linear-gradient(
+            45deg,
+            #ff003c 0px,
+            #ff7a00 35px,
+            #ffe600 70px,
+            #35ff00 105px,
+            #00eaff 140px,
+            #0066ff 175px,
+            #7a00ff 210px,
+            #ff00d4 245px
         );
-
-    background-size:200% 200%;
+    
+    background-size:auto;
 
     mix-blend-mode:screen;
     opacity:.55;
