@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1400">
     <defs>
         <filter id="soft">
-            <feGaussianBlur stdDeviation="4"/>
+            <feGaussianBlur stdDeviation="25"/>
         </filter>
     </defs>
 
