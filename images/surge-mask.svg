@@ -1,14 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1400">
     <defs>
-        <filter id="soft">
-            <feGaussianBlur stdDeviation="100"/>
+        <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="14"/>
         </filter>
     </defs>
-
-    <g
-        fill="blue"
-        filter="url(#soft)"
-    >
+    
+    <g fill="blue" filter="url(#soft)">
         <path d="M31 20 65 -7 91 -5 118 16 103 41 85 53 45 44 30 25 Z" transform="translate(70 25) rotate(125) scale(1.45) translate(-70 -25)"/>
         <path d="M174 90 188 68 240 78 272 94 254 125 220 126 196 118 169 106 Z" transform="translate(220 100) rotate(132) scale(1.45) translate(-220 -100)"/>
         <path d="M275 16 306 -3 351 1 376 14 363 54 341 57 300 49 274 32 Z" transform="translate(325 25) rotate(139) scale(1.45) translate(-325 -25)"/>
