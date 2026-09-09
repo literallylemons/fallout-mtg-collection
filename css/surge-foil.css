@@ -23,17 +23,20 @@
         repeating-linear-gradient(
             45deg,
             #ff003c 0px,
-            #ff7a00 35px,
-            #ffe600 70px,
-            #35ff00 105px,
-            #00eaff 140px,
-            #0066ff 175px,
-            #7a00ff 210px,
-            #ff00d4 245px
+            #ff4d00 25px,
+            #ff9d00 50px,
+            #ffe600 75px,
+            #80ff00 100px,
+            #00eaff 125px,
+            #0066ff 150px,
+            #4b00ff 175px,
+            #8a00ff 200px,
+            #d000ff 225px,
+            #ff00d4 245px,
+            #ff003c 270px
         );
     
-    background-size:auto;
-
+    background-size:540px 540px;
     mix-blend-mode:screen;
     opacity:.55;
 
@@ -56,7 +59,7 @@
     mask-size:100% 100%;
 
     animation:
-        surgeFoilColors 8s linear infinite;
+        surgeFoilColors 3s linear infinite;
 }
 
 
@@ -67,24 +70,10 @@
  */
 
 @keyframes surgeFoilColors{
-
     0%{
-        background-position:0% 50%;
+        background-position:0px 0px;
     }
-
-    25%{
-        background-position:35% 45%;
-    }
-
-    50%{
-        background-position:70% 55%;
-    }
-
-    75%{
-        background-position:100% 45%;
-    }
-
     100%{
-        background-position:0% 50%;
+        background-position:270px 270px;
     }
 }
