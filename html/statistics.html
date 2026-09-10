@@ -587,39 +587,131 @@ body{
 <script>
 
 
+const API_URL =
+    "https://fallout-mtg-api.jaksla-806.workers.dev";
+
+
 let cards = [];
 
 
-fetch("../data/cards.json")
+let ownership = new Map();
 
-    .then(response => {
 
-        if (!response.ok) {
+function makeOwnershipKey(
+    cardSet,
+    cardNumber,
+    variant,
+    finish
+) {
+
+    return [
+        cardSet,
+        cardNumber,
+        variant,
+        finish
+    ].join("|");
+
+}
+
+
+Promise.all([
+
+    fetch(
+        "../data/cards.json?" +
+        Date.now()
+    ),
+
+    fetch(
+        API_URL +
+        "/ownership"
+    )
+
+])
+
+    .then(async ([
+        cardsResponse,
+        ownershipResponse
+    ]) => {
+
+        if (!cardsResponse.ok) {
 
             throw new Error(
                 "Could not load cards.json. HTTP " +
-                response.status
+                cardsResponse.status
             );
 
         }
 
-        return response.json();
 
-    })
+        if (!ownershipResponse.ok) {
 
-    .then(data => {
+            throw new Error(
+                "Could not load ownership data. HTTP " +
+                ownershipResponse.status
+            );
 
-        cards = data;
-    
+        }
+
+
+        const cardsData =
+            await cardsResponse.json();
+
+
+        const ownershipData =
+            await ownershipResponse.json();
+
+
+        if (
+            !ownershipData.success ||
+            !Array.isArray(
+                ownershipData.ownership
+            )
+        ) {
+
+            throw new Error(
+                "Invalid ownership data received."
+            );
+
+        }
+
+
+        cards = cardsData;
+
+
+        ownership.clear();
+
+
+        ownershipData.ownership.forEach(
+            record => {
+
+                const key =
+                    makeOwnershipKey(
+                        record.card_set,
+                        record.card_number,
+                        record.variant,
+                        record.finish
+                    );
+
+
+                ownership.set(
+                    key,
+                    record.owned
+                );
+
+            }
+        );
+
+
         document.getElementById(
             "statisticsStatus"
         ).textContent =
             "DATABASE LOADED: " +
             cards.length +
             " CARDS";
-    
+
+
         calculateStatistics();
-    
+
     })
 
     .catch(error => {
@@ -627,11 +719,12 @@ fetch("../data/cards.json")
         document.getElementById(
             "statisticsStatus"
         ).textContent =
-            "> ERROR: " + error.message;
-        
-        console.error(error);
-    });
+            "> ERROR: " +
+            error.message;
 
+        console.error(error);
+
+    });
 
 function calculateStatistics() {
 
@@ -660,29 +753,52 @@ function calculateStatistics() {
 
             {
                 finish: "No Foil",
-                ownership: card.noFoil,
                 value: card.noFoilValue
             },
 
             {
                 finish: "Standard Foil",
-                ownership: card.standardFoil,
                 value: card.standardFoilValue
             },
 
             {
                 finish: "Surge Foil",
-                ownership: card.surgeFoil,
                 value: card.surgeFoilValue
             },
 
             {
                 finish: "Rainbow Foil",
-                ownership: card.rainbowFoil,
                 value: card.rainbowFoilValue
             }
 
         ];
+
+
+        cardFinishes.forEach(
+            finish => {
+
+                const key =
+                    makeOwnershipKey(
+                        card.set,
+                        card.number,
+                        card.variant,
+                        finish.finish
+                    );
+
+
+                const ownershipValue =
+                    ownership.get(key);
+
+
+                finish.ownership =
+                    ownershipValue === 1
+                        ? "Owned"
+                        : ownershipValue === 0
+                            ? "Unowned"
+                            : "Not Possible";
+
+            }
+        );
 
 
         cardFinishes.forEach(finish => {
