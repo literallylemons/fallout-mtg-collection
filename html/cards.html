@@ -1108,8 +1108,52 @@ function renderCards() {
             let finishHtml = "";
 
 
-            finishes.forEach(finish => {
-
+            const displayFinishes = [
+                ...finishes
+            ];
+            
+            
+            while (displayFinishes.length < 2) {
+            
+                displayFinishes.push({
+                    finish: "",
+                    price: "",
+                    ownership: "",
+                    blank: true
+                });
+            
+            }
+            
+            
+            displayFinishes.forEach(finish => {
+            
+                if (finish.blank) {
+            
+                    finishHtml += `
+            
+                        <div class="finish-row finish-row-blank">
+            
+                            <span class="finish-name">
+                                &nbsp;
+                            </span>
+            
+                            <span class="finish-price">
+                                &nbsp;
+                            </span>
+            
+                            <span>
+                                &nbsp;
+                            </span>
+            
+                        </div>
+            
+                    `;
+            
+                    return;
+            
+                }
+            
+            
                 const price =
                     finish.price === "" ||
                     finish.price === null ||
@@ -1119,38 +1163,38 @@ function renderCards() {
                           Number(
                               finish.price
                           ).toFixed(2);
-
-
+            
+            
                 const ownershipClass =
                     finish.ownership === "Owned"
                         ? "owned"
                         : "";
-
-
+            
+            
                 finishHtml += `
-
+            
                     <div class="finish-row">
-
+            
                         <span class="finish-name">
                             ${escapeHtml(
                                 finish.finish
                             )}
                         </span>
-
+            
                         <span class="finish-price">
                             ${price}
                         </span>
-
+            
                         <span class="${ownershipClass}">
                             ${escapeHtml(
                                 finish.ownership
                             )}
                         </span>
-
+            
                     </div>
-
+            
                 `;
-
+            
             });
 
 
