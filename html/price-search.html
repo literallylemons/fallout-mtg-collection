@@ -18,70 +18,94 @@
 
 body{
     overflow-x:hidden;
-    overflow-y:auto;
+    overflow-y:auto
 }
 
 .terminal{
     height:auto;
     min-height:100vh;
-    overflow:visible;
+    overflow:visible
 }
 
 
-/* PRICE SEARCH */
+/* PAGE TITLE */
 
-.path{
-    color:var(--terminal-green);
-    margin-bottom:25px;
-    font-size:14px;
-}
-
-h1{
-    font-size:24px;
-    margin:0 0 5px 0;
+.page-title{
+    font-size:17px;
     font-weight:bold;
+    line-height:1.5;
+    margin-bottom:14px
 }
 
-.subtitle{
-    margin:0 0 25px 0;
+
+/* STATUS */
+
+.status-line{
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:8px
+}
+
+.status-online{
+    font-weight:bold
 }
 
 
 /* CONTROLS */
 
 .controls{
-    border-top:1px solid var(--terminal-green);
-    border-bottom:1px solid var(--terminal-green);
-    padding:20px 0;
     display:flex;
     flex-wrap:wrap;
-    gap:15px 25px;
-    align-items:end;
+    gap:10px;
+    margin:20px 0;
+    align-items:center
 }
 
 .control{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    gap:6px
 }
 
 .control label{
     font-size:13px;
-    color:var(--terminal-green);
+    color:var(--terminal-green)
 }
 
-.control input,
-.control select{
+.controls select,
+.controls input,
+.controls button{
     appearance:none;
     background:#020502;
     color:var(--terminal-green);
     border:1px solid var(--terminal-green);
-    padding:9px;
+    padding:7px 10px;
     font-family:"Courier New",monospace;
-    font-size:14px;
-    outline:none;
+    font-size:15px;
     text-shadow:0 0 3px var(--terminal-green);
     box-shadow:0 0 5px var(--terminal-green-glow);
+}
+
+.controls select,
+.controls input{
+    outline:none;
+}
+
+.controls button{
+    cursor:pointer;
+}
+
+.controls select:hover,
+.controls input:hover,
+.controls button:hover,
+.controls select:focus,
+.controls input:focus,
+.controls button:focus{
+    background:var(--terminal-green);
+    color:#020502;
+    outline:none;
+    text-shadow:none;
+    box-shadow:0 0 10px var(--terminal-green-glow);
 }
 
 .control input{
@@ -93,34 +117,31 @@ h1{
     cursor:pointer;
 }
 
-.control input:focus,
-.control select:focus{
-    box-shadow:0 0 8px var(--terminal-green-glow);
-}
-
 .button-row{
     display:flex;
     gap:10px;
+    align-items:end;
 }
 
-button{
-    background:#020502;
-    color:var(--terminal-green);
+.top-menu-button{
+    margin-left:auto;
+    padding:8px 16px !important;
     border:1px solid var(--terminal-green);
-    padding:10px 18px;
+    color:var(--terminal-green);
+    background:transparent;
     font-family:"Courier New",monospace;
-    font-size:14px;
-    cursor:pointer;
-    text-shadow:0 0 3px var(--terminal-green);
+    font-size:15px;
+    text-decoration:none;
+    text-shadow:0 0 4px var(--terminal-green);
+    box-shadow:0 0 5px rgba(120,255,106,.3);
+    cursor:pointer
 }
 
-button:hover,
-button:focus{
+.top-menu-button:hover{
     background:var(--terminal-green);
     color:#020502;
-    outline:none;
-    box-shadow:0 0 8px var(--terminal-green-glow);
     text-shadow:none;
+    box-shadow:0 0 12px rgba(120,255,106,.8)
 }
 
 
@@ -225,6 +246,8 @@ tr:hover td{
 .links a{
     color:var(--terminal-green);
     margin-right:12px;
+    padding:3px 5px;
+    text-decoration:none;
 }
 
 .links a:hover{
@@ -249,39 +272,58 @@ tr:hover td{
     margin-top:30px;
     padding-top:15px;
     border-top:1px solid var(--terminal-green);
+    font-size:14px
 }
 
-.exit-button{
+.prompt{
+    margin-bottom:15px
+}
+
+.back-button{
     display:inline-block;
-    margin-top:12px;
-    color:var(--terminal-green);
-    text-decoration:none;
+    padding:7px 12px;
     border:1px solid var(--terminal-green);
-    padding:9px 15px;
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:14px;
+    text-decoration:none;
+    text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+    margin-bottom:5px
 }
 
-.exit-button:hover{
+.back-button:hover{
     background:var(--terminal-green);
     color:#020502;
+    text-shadow:none
 }
 
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:700px){
 
-    .chart-wrapper{
-        height:300px;
+    .terminal{
+        padding:20px
+    }
+
+    .terminal-title{
+        font-size:20px
+    }
+
+    .system-title{
+        font-size:16px
     }
 
     .controls{
         flex-direction:column;
-        align-items:stretch;
+        align-items:stretch
     }
 
     .control input,
     .control select{
-        width:100%;
+        width:100%
     }
 
     .button-row{
@@ -290,6 +332,30 @@ tr:hover td{
 
     .button-row button{
         flex:1;
+    }
+
+    .top-menu-button{
+        margin-left:0;
+        width:100% !important
+    }
+
+    .chart-wrapper{
+        height:300px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:450px){
+
+    .terminal{
+        padding:15px
+    }
+
+    .terminal-title{
+        font-size:18px
     }
 
 }
@@ -302,21 +368,142 @@ tr:hover td{
 
 <div class="terminal">
 
-    <div class="path">
-        C:\FALLOUT\MTG\DATABASE\SEARCH\PRICE_ANALYSIS.EXE
+    <div class="header">
+
+        <div class="terminal-title">
+            COLLECTION MANAGEMENT TERMINAL
+        </div>
+
+        <div class="system-title">
+            ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v 1.61
+        </div>
+
     </div>
 
 
-    <h1>
-        &gt; PRICE ANALYSIS
-    </h1>
+    <div class="page-title">
+        &gt;&gt; PRICE ANALYSIS.EXE
+    </div>
 
-    <p class="subtitle">
-        &gt; SEARCH CARD FINISHES BY MARKET VALUE
-    </p>
+
+    <div class="status-line">
+        <span id="searchStatus">
+            Loading card database...
+        </span>
+    </div>
+
+
+    <div class="divider">
+        ============================================================
+    </div>
 
 
     <div class="controls">
+
+        <div class="control">
+
+            <label for="minPrice">
+                &gt; MINIMUM PRICE
+            </label>
+
+            <input
+                type="number"
+                id="minPrice"
+                min="0"
+                step="0.01"
+                value="0"
+            >
+
+        </div>
+
+
+        <div class="control">
+
+            <label for="maxPrice">
+                &gt; MAXIMUM PRICE
+            </label>
+
+            <input
+                type="number"
+                id="maxPrice"
+                min="0"
+                step="0.01"
+                placeholder="NO LIMIT"
+            >
+
+        </div>
+
+
+        <div class="control">
+
+            <label for="ownershipFilter">
+                &gt; OWNERSHIP
+            </label>
+
+            <select id="ownershipFilter">
+
+                <option value="">
+                    ALL
+                </option>
+
+                <option value="Owned">
+                    OWNED
+                </option>
+
+                <option value="Unowned">
+                    UNOWNED
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="control">
+
+            <label for="bucketSize">
+                &gt; PRICE BUCKET
+            </label>
+
+            <input
+                type="number"
+                id="bucketSize"
+                min="0.01"
+                step="0.01"
+                value="0.10"
+            >
+
+        </div>
+
+
+        <div class="button-row">
+
+            <button
+                id="searchButton"
+                type="button"
+            >
+                &gt; SEARCH
+            </button>
+
+            <button
+                id="clearButton"
+                type="button"
+            >
+                &gt; CLEAR
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="top-menu-button"
+            onclick="window.location.href='index.html'"
+        >
+            &gt; RETURN TO MAIN MENU
+        </button>
+
+    </div>
 
         <div class="control">
 
@@ -414,12 +601,6 @@ tr:hover td{
 
     </div>
 
-
-    <div id="Status">
-        &gt; READY
-    </div>
-
-
     <div
         id="chartContainer"
         class="chart-container"
@@ -464,20 +645,22 @@ tr:hover td{
 
     <div class="footer">
 
-        &gt; PRICE ANALYSIS COMPLETE
-
-        <span class="cursor"></span>
-
-        <br>
-
+        <div class="prompt">
+    
+            &gt; PRICE ANALYSIS COMPLETE
+    
+            <span class="cursor"></span>
+    
+        </div>
+    
+    
         <a
             href="index.html"
-            class="exit-button"
-            id="exitButton"
+            class="back-button"
         >
-            &gt; EXIT TO MAIN MENU
+            &gt; RETURN TO MAIN MENU
         </a>
-
+    
     </div>
 
 </div>
