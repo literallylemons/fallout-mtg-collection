@@ -18,17 +18,36 @@ body{
 }
 
 .terminal{
-    min-height:100vh;
     height:auto;
-    overflow:hidden
+    min-height:100vh;
+    overflow:visible
 }
 
-/* STATISTICS */
+
+/* PAGE TITLE */
 
 .page-title{
-    font-size:20px;
-    margin-bottom:20px
+    font-size:17px;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:14px
 }
+
+
+/* STATUS */
+
+.status-line{
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:8px
+}
+
+.status-online{
+    font-weight:bold
+}
+
+
+/* STATISTICS */
 
 .statistics{
     display:flex;
@@ -59,6 +78,7 @@ body{
     text-align:left
 }
 
+
 /* SECTION BREAK */
 
 .separator{
@@ -71,35 +91,81 @@ body{
     overflow:hidden
 }
 
+
+/* TOP MENU BUTTON */
+
+.top-menu-button{
+    margin-left:auto;
+    padding:8px 16px;
+    border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:15px;
+    text-decoration:none;
+    text-shadow:0 0 4px var(--terminal-green);
+    box-shadow:0 0 5px var(--terminal-green-glow);
+    cursor:pointer
+}
+
+.top-menu-button:hover{
+    background:var(--terminal-green);
+    color:#020502;
+    text-shadow:none;
+    box-shadow:0 0 12px var(--terminal-green-glow)
+}
+
+
 /* FOOTER */
 
-.terminal-footer{
+.footer{
     margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid var(--terminal-green);
     font-size:14px
 }
 
-.return-button{
-    display:inline-block;
-    padding:4px 10px;
-    border:none;
-    background:transparent;
-    color:var(--terminal-green);
-    font-family:"Courier New",monospace;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    text-shadow:0 0 3px var(--terminal-green),0 0 7px var(--terminal-green-glow)
+.prompt{
+    margin-bottom:15px
 }
 
-.return-button:hover{
+.back-button{
+    display:inline-block;
+    padding:7px 12px;
+    border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:14px;
+    text-decoration:none;
+    text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+    margin-bottom:5px
+}
+
+.back-button:hover{
     background:var(--terminal-green);
     color:#020502;
     text-shadow:none
 }
 
+
 /* MOBILE */
 
 @media(max-width:700px){
+
+    .terminal{
+        padding:20px
+    }
+
+    .terminal-title{
+        font-size:20px
+    }
+
+    .system-title{
+        font-size:16px
+    }
+
     .stat-line{
         grid-template-columns:1fr;
         min-width:0;
@@ -114,6 +180,22 @@ body{
     .statistics{
         font-size:15px
     }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:450px){
+
+    .terminal{
+        padding:15px
+    }
+
+    .terminal-title{
+        font-size:18px
+    }
+
 }
 </style>
 
@@ -136,9 +218,19 @@ body{
             ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v 1.61
         </div>
     
-        <div class="copyright">
-            COPYRIGHT 2075-2077 ROBCO INDUSTRIES
-        </div>
+    </div>
+    
+    
+    <div class="page-title">
+        &gt;&gt; STATISTICS.EXE
+    </div>
+    
+    
+    <div class="status-line">
+    
+        <span id="statisticsStatus">
+            Calculating collection statistics...
+        </span>
     
     </div>
     
@@ -146,12 +238,6 @@ body{
     <div class="divider">
         ============================================================
     </div>
-    
-    
-    <div class="page-title">
-        >> STATISTICS.EXE
-    </div>
-
 
     <div class="statistics">
 
@@ -475,20 +561,23 @@ body{
     </div>
 
 
-    <div class="terminal-footer">
+    <div class="footer">
 
-        &gt; STATISTICS ANALYSIS COMPLETE
+        <div class="prompt">
     
-        <span class="cursor"></span>
+            &gt; STATISTICS ANALYSIS COMPLETE
     
-        <br><br>
+            <span class="cursor"></span>
     
-        <button
-            class="return-button"
-            onclick="window.location.href='index.html'"
+        </div>
+    
+    
+        <a
+            href="index.html"
+            class="back-button"
         >
             &gt; RETURN TO MAIN MENU
-        </button>
+        </a>
     
     </div>
 
@@ -521,20 +610,26 @@ fetch("../data/cards.json")
     .then(data => {
 
         cards = data;
-
+    
+        document.getElementById(
+            "statisticsStatus"
+        ).textContent =
+            "DATABASE LOADED: " +
+            cards.length +
+            " CARDS";
+    
         calculateStatistics();
-
+    
     })
 
     .catch(error => {
 
-        document.querySelector(
-            ".terminal-footer"
+        document.getElementById(
+            "statisticsStatus"
         ).textContent =
             "> ERROR: " + error.message;
-
+        
         console.error(error);
-
     });
 
 
