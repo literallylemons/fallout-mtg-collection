@@ -294,6 +294,29 @@ body::-webkit-scrollbar-thumb:hover{
     font-weight:bold
 }
 
+.ownership-toggle{
+    padding:0;
+    border:none;
+    background:transparent;
+    color:var(--terminal-green);
+    font-family:"Courier New",monospace;
+    font-size:14px;
+    font-weight:normal;
+    text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+}
+
+.ownership-toggle.owned{
+    font-weight:bold;
+}
+
+.ownership-toggle:hover{
+    background:var(--terminal-green);
+    color:#020502;
+    text-shadow:none;
+    box-shadow:0 0 8px var(--terminal-green-glow);
+}
+
 
 /* LINKS */
 
@@ -632,6 +655,7 @@ body::-webkit-scrollbar-thumb:hover{
 let cards = [];
 let ownership = new Map();
 
+let ownershipApiKey = null;
 
 const API_URL =
     "https://fallout-mtg-api.jaksla-806.workers.dev";
@@ -877,6 +901,176 @@ function makeOwnershipKey(
 
 }
 
+async function updateOwnership(
+    cardSet,
+    cardNumber,
+    variant,
+    finish,
+    currentOwned
+) {
+
+    if (ownershipApiKey === null) {
+
+        ownershipApiKey =
+            window.prompt(
+                "ENTER OWNERSHIP API KEY:"
+            );
+
+        if (!ownershipApiKey) {
+
+            ownershipApiKey = null;
+
+            return;
+
+        }
+
+    }
+
+
+    const newOwned =
+        currentOwned === 1
+            ? 0
+            : 1;
+
+
+    try {
+
+        status.textContent =
+            "Updating ownership...";
+
+
+        const response =
+            await fetch(
+                API_URL +
+                "/ownership",
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            "Bearer " +
+                            ownershipApiKey
+                    },
+
+                    body:
+                        JSON.stringify({
+                            card_set:
+                                cardSet,
+
+                            card_number:
+                                cardNumber,
+
+                            variant:
+                                variant,
+
+                            finish:
+                                finish,
+
+                            owned:
+                                newOwned
+                        })
+                }
+            );
+
+
+        let data = null;
+
+
+        try {
+
+            data =
+                await response.json();
+
+        }
+
+        catch (error) {
+
+            data = null;
+
+        }
+
+
+        if (
+            response.status === 401
+        ) {
+
+            ownershipApiKey = null;
+
+            status.textContent =
+                "ERROR: Invalid API key.";
+
+            window.alert(
+                "Invalid ownership API key."
+            );
+
+            return;
+
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data?.error ||
+                "Ownership update failed. HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const key =
+            makeOwnershipKey(
+                cardSet,
+                cardNumber,
+                variant,
+                finish
+            );
+
+
+        ownership.set(
+            key,
+            newOwned
+        );
+
+
+        renderCards();
+
+
+        status.textContent =
+            "Ownership updated: " +
+            cardSet +
+            " #" +
+            cardNumber +
+            " " +
+            finish +
+            " = " +
+            (
+                newOwned === 1
+                    ? "Owned"
+                    : "Unowned"
+            );
+
+    }
+
+    catch (error) {
+
+        status.textContent =
+            "ERROR: " +
+            error.message;
+
+        console.error(error);
+
+        window.alert(
+            error.message
+        );
+
+    }
+
+} 
 
 function getFinishData(card) {
 
@@ -1169,38 +1363,66 @@ function renderCards() {
                           ).toFixed(2);
             
             
+                const ownershipKey =
+                    makeOwnershipKey(
+                        card.set,
+                        card.number,
+                        card.variant,
+                        finish.finish
+                    );
+                
+                
+                const currentOwned =
+                    ownership.get(
+                        ownershipKey
+                    );
+                
+                
                 const ownershipClass =
                     finish.ownership === "Owned"
                         ? "owned"
                         : "";
-            
-            
+                
+                
                 finishHtml += `
-            
+                
                     <div class="finish-row">
-            
+                
                         <span class="finish-name">
                             ${escapeHtml(
                                 finish.finish
                             )}
                         </span>
-            
+                
                         <span class="finish-price">
                             ${price}
                         </span>
-            
-                        <span class="${ownershipClass}">
+                
+                        <button
+                            type="button"
+                            class="ownership-toggle ${ownershipClass}"
+                            data-card-set="${escapeHtml(
+                                card.set
+                            )}"
+                            data-card-number="${escapeHtml(
+                                card.number
+                            )}"
+                            data-variant="${escapeHtml(
+                                card.variant
+                            )}"
+                            data-finish="${escapeHtml(
+                                finish.finish
+                            )}"
+                            data-owned="${currentOwned}"
+                        >
                             ${escapeHtml(
                                 finish.ownership
                             )}
-                        </span>
-            
+                        </button>
+                
                     </div>
-            
+                
                 `;
-            
-            });
-
 
             cardElement.innerHTML = `
 
@@ -1314,6 +1536,40 @@ function renderCards() {
             cardGrid.appendChild(
                 cardElement
             );
+            
+            
+            const ownershipButtons =
+                cardElement.querySelectorAll(
+                    ".ownership-toggle"
+                );
+            
+            
+            ownershipButtons.forEach(button => {
+            
+                button.addEventListener(
+                    "click",
+                    () => {
+            
+                        updateOwnership(
+            
+                            button.dataset.cardSet,
+            
+                            button.dataset.cardNumber,
+            
+                            button.dataset.variant,
+            
+                            button.dataset.finish,
+            
+                            Number(
+                                button.dataset.owned
+                            )
+            
+                        );
+            
+                    }
+                );
+            
+            });
 
         }
     );
