@@ -94,7 +94,8 @@ body{
 }
 
 .product{
-    display:block;
+    display:grid;
+    grid-template-columns:190px 340px 190px 20px 1fr;
     width:100%;
     padding:7px 10px;
     border:1px solid transparent;
@@ -119,20 +120,21 @@ body{
 }
 
 .product-type{
-    display:inline-block;
-    width:190px;
+    font-weight:normal;
 }
 
 .product-name{
-    display:inline-block;
-    width:350px;
     font-weight:bold;
 }
 
-.product-status{
-    display:inline-block;
+.product-no-foil,
+.product-standard-foil{
+    white-space:nowrap;
 }
 
+.product-separator{
+    text-align:center;
+}
 
 /* DETAIL PANEL */
 
@@ -159,8 +161,9 @@ body{
 
 .detail-label{
     display:inline-block;
-    width:150px;
+    width:180px;
     font-weight:bold;
+    white-space:nowrap;
 }
 
 .detail-label::before{
@@ -228,22 +231,22 @@ body{
         width:100%
     }
 
-    .product-type{
-        display:block;
-        width:auto;
-        margin-bottom:3px;
+    .product{
+        grid-template-columns:1fr;
+        gap:3px;
     }
-
-    .product-name{
-        display:block;
-        width:auto;
-        margin-bottom:3px;
-    }
-
-    .product-status{
+    
+    .product-type,
+    .product-name,
+    .product-no-foil,
+    .product-separator,
+    .product-standard-foil{
         display:block;
     }
-
+    
+    .product-separator{
+        display:none;
+    }
 }
 
 
@@ -622,23 +625,24 @@ const detailStandardFoil =
     document.getElementById("detailStandardFoil");
 
 
-function createProductButton(
-    product,
-    index
-) {
+function createProductButton(product,index){
+    const button=document.createElement("button");
 
-    const button =
-        document.createElement("button");
+    button.className="product";
+    button.type="button";
+    button.dataset.index=index;
 
-    button.className = "product";
+    const noFoilText =
+        product.noFoil==="Not Possible"
+            ? ""
+            : "NO FOIL: "+product.noFoil;
 
-    button.type = "button";
+    const standardFoilText =
+        product.standardFoil==="Not Possible"
+            ? ""
+            : "STANDARD FOIL: "+product.standardFoil;
 
-    button.dataset.index = index;
-
-
-    button.innerHTML = `
-
+    button.innerHTML=`
         <span class="product-type">
             ${escapeHtml(product.variant)}
         </span>
@@ -647,74 +651,30 @@ function createProductButton(
             ${escapeHtml(product.name)}
         </span>
 
-        <span class="product-status">
-            ${escapeHtml(
-                getOwnershipText(product)
-            )}
+        <span class="product-no-foil">
+            ${escapeHtml(noFoilText)}
         </span>
 
+        <span class="product-separator">
+            |
+        </span>
+
+        <span class="product-standard-foil">
+            ${escapeHtml(standardFoilText)}
+        </span>
     `;
 
+    button.addEventListener("click",()=>{
+        selectedIndex=index;
+        selectProduct(index);
+    });
 
-    button.addEventListener(
-        "click",
-        () => {
-
-            selectedIndex = index;
-
-            selectProduct(index);
-
-        }
-    );
-
-
-    button.addEventListener(
-        "focus",
-        () => {
-
-            selectedIndex = index;
-
-        }
-    );
-
+    button.addEventListener("focus",()=>{
+        selectedIndex=index;
+    });
 
     return button;
-
 }
-
-
-function getOwnershipText(product) {
-
-    const statuses = [];
-
-
-    if (product.noFoil !== "Not Possible") {
-
-        statuses.push(
-            "NO FOIL: " +
-            product.noFoil
-        );
-
-    }
-
-
-    if (
-        product.standardFoil !==
-        "Not Possible"
-    ) {
-
-        statuses.push(
-            "STANDARD FOIL: " +
-            product.standardFoil
-        );
-
-    }
-
-
-    return statuses.join(" | ");
-
-}
-
 
 function renderProducts() {
 
