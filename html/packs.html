@@ -95,7 +95,7 @@ body{
 
 .product{
     display:grid;
-    grid-template-columns:190px 340px 190px 20px 1fr;
+    grid-template-columns:190px 1fr;
     width:100%;
     padding:7px 10px;
     border:1px solid transparent;
@@ -125,15 +125,6 @@ body{
 
 .product-name{
     font-weight:bold;
-}
-
-.product-no-foil,
-.product-standard-foil{
-    white-space:nowrap;
-}
-
-.product-separator{
-    text-align:center;
 }
 
 /* DETAIL PANEL */
@@ -391,28 +382,6 @@ body{
 
         </div>
 
-
-        <div class="detail-row">
-
-            <span class="detail-label">
-                No Foil:
-            </span>
-
-            <span id="detailNoFoil"></span>
-
-        </div>
-
-
-        <div class="detail-row">
-
-            <span class="detail-label">
-                Standard Foil:
-            </span>
-
-            <span id="detailStandardFoil"></span>
-
-        </div>
-
     </div>
 
 
@@ -618,29 +587,12 @@ const detailYear =
 const detailVariant =
     document.getElementById("detailVariant");
 
-const detailNoFoil =
-    document.getElementById("detailNoFoil");
-
-const detailStandardFoil =
-    document.getElementById("detailStandardFoil");
-
-
 function createProductButton(product,index){
     const button=document.createElement("button");
 
     button.className="product";
     button.type="button";
     button.dataset.index=index;
-
-    const noFoilText =
-        product.noFoil==="Not Possible"
-            ? ""
-            : "NO FOIL: "+product.noFoil;
-
-    const standardFoilText =
-        product.standardFoil==="Not Possible"
-            ? ""
-            : "STANDARD FOIL: "+product.standardFoil;
 
     button.innerHTML=`
         <span class="product-type">
@@ -649,18 +601,6 @@ function createProductButton(product,index){
 
         <span class="product-name">
             ${escapeHtml(product.name)}
-        </span>
-
-        <span class="product-no-foil">
-            ${escapeHtml(noFoilText)}
-        </span>
-
-        <span class="product-separator">
-            |
-        </span>
-
-        <span class="product-standard-foil">
-            ${escapeHtml(standardFoilText)}
         </span>
     `;
 
@@ -774,15 +714,6 @@ function selectProduct(index) {
 
     detailVariant.textContent =
         product.variant;
-
-
-    detailNoFoil.textContent =
-        product.noFoil;
-
-
-    detailStandardFoil.textContent =
-        product.standardFoil;
-
 
     detailPanel.classList.add(
         "visible"
