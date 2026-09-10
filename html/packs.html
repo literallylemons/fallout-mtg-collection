@@ -18,42 +18,74 @@
 
 body{
     overflow-x:hidden;
-    overflow-y:auto;
+    overflow-y:auto
 }
 
 .terminal{
     height:auto;
     min-height:100vh;
-    overflow:visible;
+    overflow:visible
 }
 
 
-/* PACK DATABASE */
+/* PAGE TITLE */
 
-.path{
-    font-size:14px;
-    margin-bottom:25px;
-}
-
-.title{
-    font-size:20px;
+.page-title{
+    font-size:17px;
     font-weight:bold;
-    margin-bottom:8px;
+    line-height:1.5;
+    margin-bottom:14px
 }
 
-.subtitle{
-    font-size:14px;
-    margin-bottom:25px;
+
+/* STATUS */
+
+.status-line{
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:8px
 }
+
+
+/* CONTROLS */
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0;
+    align-items:center
+}
+
+.top-menu-button{
+    margin-left:auto;
+    padding:8px 16px;
+    border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:15px;
+    text-decoration:none;
+    text-shadow:0 0 4px var(--terminal-green);
+    box-shadow:0 0 5px rgba(120,255,106,.3);
+    cursor:pointer
+}
+
+.top-menu-button:hover{
+    background:var(--terminal-green);
+    color:#020502;
+    text-shadow:none;
+    box-shadow:0 0 12px rgba(120,255,106,.8)
+}
+
+
+/* PRODUCT DATABASE */
 
 .section-title{
     margin-top:25px;
     margin-bottom:10px;
     font-weight:bold;
 }
-
-
-/* PRODUCT LIST */
 
 .product-list{
     display:flex;
@@ -138,36 +170,63 @@ body{
 
 /* FOOTER */
 
-.terminal-footer{
-    margin-top:35px;
-    padding-top:20px;
+.footer{
+    margin-top:30px;
+    padding-top:15px;
     border-top:1px solid var(--terminal-green);
+    font-size:14px
 }
 
-.exit-button{
+.prompt{
+    margin-bottom:15px
+}
+
+.back-button{
     display:inline-block;
-    margin-top:15px;
     padding:7px 12px;
-    color:var(--terminal-green);
-    text-decoration:none;
     border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
     font-family:"Courier New",monospace;
     font-size:14px;
+    text-decoration:none;
     text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+    margin-bottom:5px
 }
 
-.exit-button:hover,
-.exit-button:focus{
+.back-button:hover{
     background:var(--terminal-green);
     color:#020502;
-    text-shadow:none;
-    outline:none;
+    text-shadow:none
 }
 
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:700px){
+
+    .terminal{
+        padding:20px
+    }
+
+    .terminal-title{
+        font-size:20px
+    }
+
+    .system-title{
+        font-size:16px
+    }
+
+    .controls{
+        flex-direction:column;
+        align-items:stretch
+    }
+
+    .top-menu-button{
+        margin-left:0;
+        width:100%
+    }
 
     .product-type{
         display:block;
@@ -187,6 +246,21 @@ body{
 
 }
 
+
+/* SMALL MOBILE */
+
+@media(max-width:450px){
+
+    .terminal{
+        padding:15px
+    }
+
+    .terminal-title{
+        font-size:18px
+    }
+
+}
+
 </style>
 </head>
 
@@ -195,18 +269,46 @@ body{
 
 <div class="terminal">
 
-    <div class="path">
-        C:/FALLOUT/MTG_COLLECTION/PACKS
+    <div class="header">
+
+        <div class="terminal-title">
+            COLLECTION MANAGEMENT TERMINAL
+        </div>
+
+        <div class="system-title">
+            ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v 1.61
+        </div>
+
     </div>
 
 
-    <div class="title">
-        &gt; SEALED_PRODUCTS.EXE
+    <div class="page-title">
+        &gt;&gt; SEALED PRODUCTS.EXE
     </div>
 
 
-    <div class="subtitle">
-        &gt; PRODUCTS FOUND: 16
+    <div class="status-line">
+        <span>
+            &gt; PRODUCTS FOUND: 16
+        </span>
+    </div>
+
+
+    <div class="divider">
+        ============================================================
+    </div>
+
+
+    <div class="controls">
+
+        <button
+            type="button"
+            class="top-menu-button"
+            onclick="window.location.href='index.html'"
+        >
+            &gt; RETURN TO MAIN MENU
+        </button>
+
     </div>
 
 
@@ -311,24 +413,25 @@ body{
     </div>
 
 
-    <div class="terminal-footer">
+    <div class="footer">
 
-        &gt; SELECT PRODUCT TO VIEW DETAILS
-
-        <span class="cursor"></span>
-
-
-        <br>
-
-
+        <div class="prompt">
+    
+            &gt; SELECT PRODUCT TO VIEW DETAILS
+    
+            <span class="cursor"></span>
+    
+        </div>
+    
+    
         <a
             href="index.html"
-            class="exit-button"
+            class="back-button"
             id="exitButton"
         >
-            &gt; EXIT TO MAIN MENU
+            &gt; RETURN TO MAIN MENU
         </a>
-
+    
     </div>
 
 </div>
