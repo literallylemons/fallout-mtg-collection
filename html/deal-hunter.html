@@ -14,27 +14,36 @@
 
 body{
     overflow-x:hidden;
-    overflow-y:auto;
+    overflow-y:auto
 }
 
 .terminal{
     height:auto;
     min-height:100vh;
-    overflow:visible;
+    overflow:visible
 }
 
 
-/* DEAL HUNTER */
+/* PAGE TITLE */
 
 .page-title{
-    font-size:20px;
-    margin-bottom:20px;
+    font-size:17px;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:14px
 }
+
+
+/* STATUS */
 
 .status-line{
     font-size:15px;
     line-height:1.5;
-    margin-bottom:8px;
+    margin-bottom:8px
+}
+
+.status-online{
+    font-weight:bold
 }
 
 
@@ -45,7 +54,7 @@ body{
     flex-wrap:wrap;
     gap:10px;
     margin:20px 0;
-    align-items:center;
+    align-items:center
 }
 
 .controls select,
@@ -55,7 +64,7 @@ body{
     background:#020502;
     color:var(--terminal-green);
     border:1px solid var(--terminal-green);
-    padding:8px 12px;
+    padding:7px 10px;
     font-family:"Courier New",monospace;
     font-size:15px;
     text-shadow:0 0 3px var(--terminal-green);
@@ -83,6 +92,28 @@ body{
     text-shadow:none;
     box-shadow:0 0 10px var(--terminal-green-glow);
 }
+
+.top-menu-button{
+    margin-left:auto;
+    padding:8px 16px !important;
+    border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:15px;
+    text-decoration:none;
+    text-shadow:0 0 4px var(--terminal-green);
+    box-shadow:0 0 5px rgba(120,255,106,.3);
+    cursor:pointer
+}
+
+.top-menu-button:hover{
+    background:var(--terminal-green);
+    color:#020502;
+    text-shadow:none;
+    box-shadow:0 0 12px rgba(120,255,106,.8)
+}
+
 
 /* SCANNER */
 
@@ -118,7 +149,7 @@ body{
         0 0 5px var(--terminal-green),
         0 0 12px var(--terminal-green-glow);
 }
-        
+
 #cardImage{
     width:100%;
     display:block;
@@ -164,7 +195,7 @@ body{
 
     animation:surgeFoilReflection 5s linear infinite;
 }
-        
+
 .card-name{
     font-size:22px;
     font-weight:bold;
@@ -202,24 +233,31 @@ body{
     margin-top:30px;
     padding-top:15px;
     border-top:1px solid var(--terminal-green);
+    font-size:14px
 }
 
-.exit-button{
+.prompt{
+    margin-bottom:15px
+}
+
+.back-button{
     display:inline-block;
-    margin-top:12px;
     padding:7px 12px;
-    color:var(--terminal-green);
-    text-decoration:none;
     border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
     font-family:"Courier New",monospace;
     font-size:14px;
+    text-decoration:none;
     text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+    margin-bottom:5px
 }
 
-.exit-button:hover{
+.back-button:hover{
     background:var(--terminal-green);
     color:#020502;
-    text-shadow:none;
+    text-shadow:none
 }
 
 
@@ -228,18 +266,31 @@ body{
 @media(max-width:700px){
 
     .terminal{
-        padding:20px;
+        padding:20px
+    }
+
+    .terminal-title{
+        font-size:20px
+    }
+
+    .system-title{
+        font-size:16px
     }
 
     .controls{
         flex-direction:column;
-        align-items:stretch;
+        align-items:stretch
     }
 
     .controls select,
     .controls input,
     .controls button{
-        width:100%;
+        width:100%
+    }
+
+    .top-menu-button{
+        margin-left:0;
+        width:100% !important
     }
 
     #result{
@@ -249,12 +300,27 @@ body{
     .card-image-container{
         width:100%;
     }
-    
+
     #cardImage{
         width:100%;
         display:block;
         border-radius:17px;
     }
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:450px){
+
+    .terminal{
+        padding:15px
+    }
+
+    .terminal-title{
+        font-size:18px
+    }
+
 }
 
 </style>
@@ -270,30 +336,32 @@ body{
         <div class="terminal-title">
             COLLECTION MANAGEMENT TERMINAL
         </div>
-
+    
         <div class="system-title">
             ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v 1.61
         </div>
-
-        <div class="copyright">
-            COPYRIGHT 2075-2077 ROBCO INDUSTRIES
-        </div>
-
+    
     </div>
-
-    <div class="divider">
-        ============================================================
-    </div>
-
+    
+    
     <div class="page-title">
         &gt;&gt; DEAL HUNTER.EXE
     </div>
-
-<p id="status">
-    Loading card database...
-</p>
-
-<div class="controls">
+    
+    
+    <div class="status-line">
+        <span id="status">
+            Loading card database...
+        </span>
+    </div>
+    
+    
+    <div class="divider">
+        ============================================================
+    </div>
+    
+    
+    <div class="controls">
 
     <select id="ownership">
 
@@ -464,15 +532,18 @@ body{
 
 <div class="footer">
 
-    &gt; DEAL HUNTER ANALYSIS COMPLETE
+    <div class="prompt">
 
-    <span class="cursor"></span>
+        &gt; DEAL HUNTER ANALYSIS COMPLETE
 
-    <br>
+        <span class="cursor"></span>
+
+    </div>
+
 
     <a
         href="index.html"
-        class="exit-button"
+        class="back-button"
     >
         &gt; RETURN TO MAIN MENU
     </a>
