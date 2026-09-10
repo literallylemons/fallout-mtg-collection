@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
-<title>Card Lot Search</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Card Lot Search | Fallout MTG Collection</title>
 <link rel="stylesheet" href="../css/terminal.css">
 <style>
 
@@ -14,9 +20,47 @@ body{
 }
 
 .terminal{
+    height:auto;
     min-height:100vh;
     overflow:visible
 }
+
+
+/* PAGE TITLE */
+
+.page-title{
+    font-size:15px;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:14px
+}
+
+
+/* STATUS */
+
+.status-line{
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:8px
+}
+
+.status-online{
+    font-weight:bold
+}
+
+
+/* DIVIDER */
+
+.divider{
+    width:540px;
+    max-width:100%;
+    margin:20px 0;
+    font-size:15px;
+    line-height:1;
+    white-space:nowrap;
+    overflow:hidden
+}
+
 
 /* SECTIONS */
 
@@ -25,11 +69,14 @@ body{
     padding:15px;
     margin-bottom:20px;
     overflow-x:auto;
+    background:rgba(0,10,0,.15);
+    box-shadow:0 0 5px var(--terminal-green-glow)
 }
 
 .section-title{
+    font-size:17px;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
 
 .lot-header{
@@ -40,12 +87,13 @@ body{
 }
 
 #clearListButton{
-    padding:5px 10px;
-    font-size:13px;
+    padding:7px 12px;
+    font-size:14px;
     flex-shrink:0;
 }
 
-/* INPUTS */
+
+/* CONTROLS */
 
 .input-grid{
     display:grid;
@@ -54,14 +102,14 @@ body{
         1fr
         1fr
         auto;
-    gap:12px;
+    gap:10px;
     align-items:end;
 }
 
 label{
     display:block;
     font-size:12px;
-    margin-bottom:5px;
+    margin-bottom:5px
 }
 
 input,
@@ -72,19 +120,28 @@ select{
     background:#020502;
     color:var(--terminal-green);
     border:1px solid var(--terminal-green);
-    padding:9px;
+    padding:7px 10px;
     font-family:"Courier New",monospace;
-    font-size:14px;
-    font-weight:normal;
-    outline:none;
+    font-size:15px;
     text-shadow:0 0 3px var(--terminal-green);
     box-shadow:0 0 5px var(--terminal-green-glow);
+    outline:none
+}
+
+input::placeholder{
+    color:var(--terminal-green);
+    opacity:.65
 }
 
 input:focus,
 select:focus{
-    box-shadow:0 0 8px var(--terminal-green-glow);
+    box-shadow:0 0 8px var(--terminal-green-glow)
 }
+
+select{
+    cursor:pointer
+}
+
 
 /* BUTTONS */
 
@@ -92,7 +149,7 @@ button{
     background:#020502;
     color:var(--terminal-green);
     border:1px solid var(--terminal-green);
-    padding:10px 18px;
+    padding:7px 12px;
     font-family:"Courier New",monospace;
     font-size:14px;
     font-weight:normal;
@@ -106,28 +163,30 @@ button:focus{
     color:#020502;
     outline:none;
     box-shadow:0 0 8px var(--terminal-green-glow);
-    text-shadow:none;
+    text-shadow:none
 }
 
 button:disabled{
     opacity:.4;
-    cursor:default;
+    cursor:default
 }
+
 
 /* STATUS */
 
 .status{
     min-height:20px;
     margin-top:15px;
-    font-size:13px;
+    font-size:13px
 }
+
 
 /* TABLE */
 
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:1000px;
+    min-width:1000px
 }
 
 th,
@@ -136,22 +195,23 @@ td{
     padding:9px;
     text-align:left;
     font-size:12px;
-    white-space:nowrap;
+    white-space:nowrap
 }
 
 th{
     color:var(--terminal-green);
     border-bottom:2px solid var(--terminal-green);
-    background:rgba(120,255,106,.05);
+    background:rgba(120,255,106,.05)
 }
 
 td{
-    color:var(--terminal-green);
+    color:var(--terminal-green)
 }
 
 tr:hover td{
-    background:rgba(120,255,106,.08);
+    background:rgba(120,255,106,.08)
 }
+
 
 /* REMOVE BUTTON */
 
@@ -161,13 +221,14 @@ tr:hover td{
     padding:5px 9px;
     margin:0;
     width:auto;
-    font-size:14px;
+    font-size:14px
 }
 
 .remove-button:hover{
     background:var(--terminal-green);
-    color:#020502;
+    color:#020502
 }
+
 
 /* TOTAL */
 
@@ -175,50 +236,143 @@ tr:hover td{
     margin-top:15px;
     border-top:1px solid var(--terminal-green);
     padding-top:12px;
-    font-weight:bold;
+    font-weight:bold
 }
+
 
 /* FOOTER */
 
-.exit-button{
-    display:inline-block;
-    margin-top:15px;
-    padding:9px 15px;
-    border:1px solid var(--terminal-green);
-    color:var(--terminal-green);
-    background:#020502;
-    text-decoration:none;
-    font-family:"Courier New",monospace;
-    font-size:14px;
-    font-weight:normal;
-    text-shadow:0 0 3px var(--terminal-green);
+.footer{
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid var(--terminal-green);
+    font-size:14px
 }
 
-.exit-button:hover{
+.prompt{
+    margin-bottom:15px
+}
+
+.cursor{
+    display:inline-block;
+    width:10px;
+    height:18px;
+    margin-left:2px;
+    vertical-align:middle;
+    background:var(--terminal-green);
+    animation:blink .8s steps(1) infinite
+}
+
+
+/* BACK BUTTON */
+
+.back-button{
+    display:inline-block;
+    padding:7px 12px;
+    border:1px solid var(--terminal-green);
+    color:var(--terminal-green);
+    background:transparent;
+    font-family:"Courier New",monospace;
+    font-size:14px;
+    text-decoration:none;
+    text-shadow:0 0 3px var(--terminal-green);
+    cursor:pointer;
+    margin-bottom:5px
+}
+
+.back-button:hover{
     background:var(--terminal-green);
     color:#020502;
-    text-shadow:none;
-    box-shadow:0 0 8px var(--terminal-green-glow);
+    text-shadow:none
 }
+
+
+/* SCROLLBARS */
+
+body::-webkit-scrollbar{
+    width:10px
+}
+
+body::-webkit-scrollbar-track{
+    background:#020502;
+    border-left:1px solid var(--terminal-green)
+}
+
+body::-webkit-scrollbar-thumb{
+    background:var(--terminal-green);
+    border:2px solid #020502;
+    box-shadow:
+        0 0 5px var(--terminal-green),
+        0 0 10px var(--terminal-green-glow)
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background:#d0ffd0;
+    box-shadow:
+        0 0 8px var(--terminal-green),
+        0 0 15px var(--terminal-green-glow)
+}
+
+
+/* MEDIUM */
+
+@media(max-width:1000px){
+
+    .input-grid{
+        grid-template-columns:
+            1fr
+            1fr
+            1fr
+            auto
+    }
+
+}
+
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:700px){
+
+    .terminal{
+        padding:20px
+    }
+
+    .terminal-title{
+        font-size:20px
+    }
+
+    .system-title{
+        font-size:16px
+    }
 
     .input-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .section{
-        padding:12px;
+        padding:12px
     }
 
     table{
-        min-width:1000px;
+        min-width:1000px
     }
 
 }
 
+
+/* SMALL MOBILE */
+
+@media(max-width:450px){
+
+    .terminal{
+        padding:15px
+    }
+
+    .terminal-title{
+        font-size:18px
+    }
+
+}
 </style>
 
 </head>
@@ -242,8 +396,18 @@ tr:hover td{
     <div class="page-title">
         &gt; CARD LOT SEARCH.EXE
     </div>
-
-
+    
+    <div class="status-line">
+        <span id="status">
+            Loading card database...
+        </span>
+    </div>
+    
+    <div class="divider">
+        ============================================================
+    </div>
+    
+    
     <div class="section">
 
         <div class="section-title">
@@ -343,14 +507,6 @@ tr:hover td{
 
         </div>
 
-
-        <div
-            id="status"
-            class="status"
-        >
-            &gt; READY
-        </div>
-
     </div>
 
 
@@ -420,12 +576,24 @@ tr:hover td{
     </div>
 
 
-    <a
-        href="index.html"
-        class="exit-button"
-    >
-        &gt; EXIT TO MAIN MENU
-    </a>
+    <div class="footer">
+
+        <div class="prompt">
+    
+            &gt; CARD LOT SEARCH COMPLETE
+    
+            <span class="cursor"></span>
+    
+        </div>
+    
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            &gt; RETURN TO MAIN MENU
+        </a>
+    
+    </div>
 
 </div>
 
