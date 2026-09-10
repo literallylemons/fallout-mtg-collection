@@ -85,6 +85,13 @@ body{
     line-height:1.3;
 }
 
+.page-title{
+    font-size:17px;
+    font-weight:bold;
+    line-height:1.35;
+    margin-bottom:14px
+}
+
 /* DIVIDERS */
 
 .divider{
