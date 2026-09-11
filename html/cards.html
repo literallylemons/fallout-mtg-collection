@@ -474,9 +474,74 @@ body::-webkit-scrollbar-thumb:hover{
 
 </head>
 
-
 <body>
 
+<script>
+
+const scanline =
+    document.createElement("div");
+
+scanline.className =
+    "crt-scanline";
+
+document.body.appendChild(
+    scanline
+);
+
+
+function runScanline() {
+
+    const duration =
+        900 + Math.random() * 900;
+
+    const delay =
+        5000 + Math.random() * 5000;
+
+
+    scanline.style.transition =
+        "none";
+
+    scanline.style.opacity =
+        "0";
+
+    scanline.style.top =
+        "0";
+
+
+    setTimeout(() => {
+
+        scanline.style.transition =
+            `top ${duration}ms linear, opacity 150ms ease`;
+
+        scanline.style.opacity =
+            "1";
+
+        scanline.style.top =
+            "100vh";
+
+
+        setTimeout(() => {
+
+            scanline.style.opacity =
+                "0";
+
+        }, duration - 150);
+
+
+        setTimeout(
+            runScanline,
+            delay
+        );
+
+    }, 100);
+
+}
+
+
+runScanline();
+
+</script>
+    
 <div class="terminal">
 
 
