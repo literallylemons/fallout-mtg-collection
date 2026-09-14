@@ -25,7 +25,6 @@ body{
     overflow:visible
 }
 
-
 /* PAGE TITLE */
 
 .page-title{
@@ -34,7 +33,6 @@ body{
     line-height:1.5;
     margin-bottom:14px
 }
-
 
 /* STATUS */
 
@@ -48,7 +46,6 @@ body{
     font-weight:bold
 }
 
-
 /* DIVIDER */
 
 .divider{
@@ -60,7 +57,6 @@ body{
     white-space:nowrap;
     overflow:hidden
 }
-
 
 /* SECTIONS */
 
@@ -91,7 +87,6 @@ body{
     font-size:14px;
     flex-shrink:0;
 }
-
 
 /* CONTROLS */
 
@@ -142,7 +137,6 @@ select{
     cursor:pointer
 }
 
-
 /* BUTTONS */
 
 button{
@@ -171,7 +165,6 @@ button:disabled{
     cursor:default
 }
 
-
 /* STATUS */
 
 .status{
@@ -179,7 +172,6 @@ button:disabled{
     margin-top:15px;
     font-size:13px
 }
-
 
 /* TABLE */
 
@@ -212,7 +204,6 @@ tr:hover td{
     background:rgba(120,255,106,.08)
 }
 
-
 /* REMOVE BUTTON */
 
 .remove-button{
@@ -229,7 +220,6 @@ tr:hover td{
     color:#020502
 }
 
-
 /* TOTAL */
 
 .total{
@@ -238,7 +228,6 @@ tr:hover td{
     padding-top:12px;
     font-weight:bold
 }
-
 
 /* FOOTER */
 
@@ -263,7 +252,6 @@ tr:hover td{
     animation:blink .8s steps(1) infinite
 }
 
-
 /* BACK BUTTON */
 
 .back-button{
@@ -285,7 +273,6 @@ tr:hover td{
     color:#020502;
     text-shadow:none
 }
-
 
 /* SCROLLBARS */
 
@@ -313,7 +300,6 @@ body::-webkit-scrollbar-thumb:hover{
         0 0 15px var(--terminal-green-glow)
 }
 
-
 /* MEDIUM */
 
 @media(max-width:1000px){
@@ -327,7 +313,6 @@ body::-webkit-scrollbar-thumb:hover{
     }
 
 }
-
 
 /* MOBILE */
 
@@ -358,7 +343,6 @@ body::-webkit-scrollbar-thumb:hover{
     }
 
 }
-
 
 /* SMALL MOBILE */
 
@@ -407,7 +391,6 @@ body::-webkit-scrollbar-thumb:hover{
         ============================================================
     </div>
     
-    
     <div class="section">
 
         <div class="section-title">
@@ -445,7 +428,6 @@ body::-webkit-scrollbar-thumb:hover{
 
             </div>
 
-
             <div>
 
                 <label for="numberInput">
@@ -459,7 +441,6 @@ body::-webkit-scrollbar-thumb:hover{
                 >
 
             </div>
-
 
             <div>
 
@@ -493,7 +474,6 @@ body::-webkit-scrollbar-thumb:hover{
 
             </div>
 
-
             <div>
 
                 <button
@@ -508,7 +488,6 @@ body::-webkit-scrollbar-thumb:hover{
         </div>
 
     </div>
-
 
     <div class="section">
 
@@ -526,7 +505,6 @@ body::-webkit-scrollbar-thumb:hover{
             </button>
         
         </div>
-
 
         <table>
 
@@ -550,13 +528,11 @@ body::-webkit-scrollbar-thumb:hover{
 
             </thead>
 
-
             <tbody id="lotTableBody">
 
             </tbody>
 
         </table>
-
 
         <div
             id="emptyMessage"
@@ -564,7 +540,6 @@ body::-webkit-scrollbar-thumb:hover{
         >
             &gt; NO CARDS CURRENTLY ADDED
         </div>
-
 
         <div
             id="lotTotal"
@@ -574,7 +549,6 @@ body::-webkit-scrollbar-thumb:hover{
         </div>
 
     </div>
-
 
     <div class="footer">
 
@@ -597,7 +571,6 @@ body::-webkit-scrollbar-thumb:hover{
 
 </div>
 
-
 <script>
 
 let cards = [];
@@ -606,11 +579,8 @@ let lot = JSON.parse(
     localStorage.getItem("falloutCardLot") || "[]"
 );
 
-
 /*
- * --------------------------------------------------------
  * LOAD CARDS.JSON
- * --------------------------------------------------------
  */
 
 async function loadCards() {
@@ -621,12 +591,10 @@ async function loadCards() {
     status.textContent =
         "> ACCESSING CARD DATABASE...";
 
-
     try {
 
         const response =
             await fetch("../data/cards.json");
-
 
         if (!response.ok) {
 
@@ -636,16 +604,13 @@ async function loadCards() {
 
         }
 
-
         cards =
             await response.json();
-
 
         status.textContent =
             "> DATABASE LOADED: " +
             cards.length +
             " CARD RECORDS";
-
 
     }
 
@@ -662,9 +627,7 @@ async function loadCards() {
 
 
 /*
- * --------------------------------------------------------
  * FIND CARD
- * --------------------------------------------------------
  */
 
 function findCard(set, number) {
@@ -685,18 +648,14 @@ function findCard(set, number) {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * GET FINISH INFORMATION
- * --------------------------------------------------------
  */
 
 function getFinishData(card, finish) {
 
     let ownershipKey;
     let valueKey;
-
 
     if (finish === "No Foil") {
 
@@ -744,7 +703,6 @@ function getFinishData(card, finish) {
 
     }
 
-
     return {
 
         ownership:
@@ -757,11 +715,8 @@ function getFinishData(card, finish) {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * ADD CARD
- * --------------------------------------------------------
  */
 
 function addCardToLot() {
@@ -786,10 +741,8 @@ function addCardToLot() {
 
     }
 
-
     const card =
         findCard(set, number);
-
 
     if (!card) {
 
@@ -801,10 +754,8 @@ function addCardToLot() {
 
     }
 
-
     const finishData =
         getFinishData(card, finish);
-
 
     if (!finishData) {
 
@@ -815,7 +766,6 @@ function addCardToLot() {
         return;
 
     }
-
 
     if (
         finishData.ownership ===
@@ -840,9 +790,7 @@ function addCardToLot() {
 
     }
 
-
     let value = "";
-
 
     if (
         finishData.value !== "" &&
@@ -853,7 +801,6 @@ function addCardToLot() {
         const numericValue =
             Number(finishData.value);
 
-
         if (!isNaN(numericValue)) {
 
             value =
@@ -862,7 +809,6 @@ function addCardToLot() {
         }
 
     }
-
 
     const lotEntry = {
 
@@ -902,7 +848,6 @@ function addCardToLot() {
 
     };
 
-
     lot.push(lotEntry);
     saveLot();
     renderLot();
@@ -910,7 +855,6 @@ function addCardToLot() {
     document
         .getElementById("numberInput")
         .value = "";
-
 
     setStatus(
         "> ADDED: " +
@@ -924,11 +868,8 @@ function addCardToLot() {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * REMOVE CARD
- * --------------------------------------------------------
  */
 
 function removeCard(id) {
@@ -947,9 +888,7 @@ function removeCard(id) {
 }
 
 /*
- * --------------------------------------------------------
  * SAVE LOT
- * --------------------------------------------------------
  */
 
 function saveLot() {
@@ -962,9 +901,7 @@ function saveLot() {
 }
     
 /*
- * --------------------------------------------------------
  * RENDER LOT
- * --------------------------------------------------------
  */
 
 function renderLot() {
@@ -978,9 +915,7 @@ function renderLot() {
     const lotTotal =
         document.getElementById("lotTotal");
 
-
     tbody.innerHTML = "";
-
 
     if (lot.length === 0) {
 
@@ -994,19 +929,15 @@ function renderLot() {
 
     }
 
-
     emptyMessage.style.display =
         "none";
 
-
     let totalValue = 0;
-
 
     lot.forEach(card => {
 
         const row =
             document.createElement("tr");
-
 
         const valueText =
             card.value === ""
@@ -1014,14 +945,12 @@ function renderLot() {
                 : "$" +
                   Number(card.value).toFixed(2);
 
-
         if (card.value !== "") {
 
             totalValue +=
                 Number(card.value);
 
         }
-
 
         row.innerHTML = `
 
@@ -1056,15 +985,12 @@ function renderLot() {
 
         `;
 
-
         tbody.appendChild(row);
 
     });
 
-
     lotTotal.style.display =
         "block";
-
 
     lotTotal.textContent =
         "> TOTAL TRACKED VALUE: $" +
@@ -1072,11 +998,8 @@ function renderLot() {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * STATUS
- * --------------------------------------------------------
  */
 
 function setStatus(message) {
@@ -1087,11 +1010,8 @@ function setStatus(message) {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * HTML ESCAPING
- * --------------------------------------------------------
  */
 
 function escapeHtml(text) {
@@ -1125,11 +1045,8 @@ function escapeHtml(text) {
 
 }
 
-
 /*
- * --------------------------------------------------------
  * CLEAR LIST
- * --------------------------------------------------------
  */
 
 document
@@ -1161,11 +1078,8 @@ document
         }
     );
 
-
 /*
- * --------------------------------------------------------
  * ENTER KEY
- * --------------------------------------------------------
  */
 
 document
@@ -1174,7 +1088,6 @@ document
         "click",
         addCardToLot
     );
-
 
 document
     .getElementById("numberInput")
@@ -1196,9 +1109,7 @@ document
 
 
 /*
- * --------------------------------------------------------
  * START
- * --------------------------------------------------------
  */
 
 loadCards();
