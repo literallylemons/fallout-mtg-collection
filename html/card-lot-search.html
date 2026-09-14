@@ -392,7 +392,7 @@ document.body.appendChild(
 );
 
 
-function testScanline(){
+function runScanline(){
 
     scanline.style.transition =
         "none";
@@ -400,20 +400,45 @@ function testScanline(){
     scanline.style.top =
         "0";
 
+    scanline.style.opacity =
+        "1";
+
     setTimeout(() => {
 
         scanline.style.transition =
-            "top 3s linear";
+            "top 2.5s linear";
 
         scanline.style.top =
             "100vh";
 
-    }, 100);
+    }, 50);
+
+
+    setTimeout(() => {
+
+        scanline.style.opacity =
+            "0";
+
+    }, 2550);
+
+
+    const nextDelay =
+        5000 +
+        Math.random() * 5000;
+
+    setTimeout(
+        runScanline,
+        nextDelay
+    );
 
 }
 
 
-testScanline();
+setTimeout(
+    runScanline,
+    5000 +
+    Math.random() * 5000
+);
 
 </script>
     
