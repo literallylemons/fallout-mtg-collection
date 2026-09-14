@@ -226,18 +226,3 @@ body{
         width:auto
     }
 }
-
-/* CRT SCAN LINE TEST */
-
-.crt-scanline{
-    position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:2px;
-    background:rgba(120,255,106,.18);
-    box-shadow:0 0 6px rgba(120,255,106,.12);
-    pointer-events:none;
-    z-index:102;
-    opacity:0;
-}
