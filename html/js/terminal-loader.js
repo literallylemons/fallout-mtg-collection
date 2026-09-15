@@ -208,9 +208,9 @@
         }
 
 
-        loader.classList.add(
-            "crt-transition"
-        );
+        loader
+            .querySelector(".terminal")
+            .classList.add("crt-transition");
 
 
         setTimeout(function(){
@@ -221,7 +221,7 @@
 
             }
 
-        }, 180);
+        }, 320);
 
     }
 
