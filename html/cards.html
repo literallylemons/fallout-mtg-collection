@@ -802,9 +802,154 @@ let ownership = new Map();
 
 let ownershipApiKey = null;
 
+const ownershipModal =
+    document.getElementById(
+        "ownershipModal"
+    );
+
+const ownershipApiKeyInput =
+    document.getElementById(
+        "ownershipApiKeyInput"
+    );
+
+const ownershipModalSubmit =
+    document.getElementById(
+        "ownershipModalSubmit"
+    );
+
+const ownershipModalCancel =
+    document.getElementById(
+        "ownershipModalCancel"
+    );
+
+const ownershipModalError =
+    document.getElementById(
+        "ownershipModalError"
+    );
+
+
+function requestOwnershipApiKey(){
+
+    return new Promise(resolve => {
+
+        ownershipApiKeyInput.value = "";
+
+        ownershipModalError.textContent = "";
+
+        ownershipModalError.style.display =
+            "none";
+
+        ownershipModal.style.display =
+            "flex";
+
+        ownershipApiKeyInput.focus();
+
+
+        function cleanup(){
+
+            ownershipModalSubmit.removeEventListener(
+                "click",
+                submit
+            );
+
+            ownershipModalCancel.removeEventListener(
+                "click",
+                cancel
+            );
+
+            ownershipApiKeyInput.removeEventListener(
+                "keydown",
+                keydown
+            );
+
+        }
+
+
+        function submit(){
+
+            const key =
+                ownershipApiKeyInput.value.trim();
+
+            if(!key){
+
+                ownershipModalError.textContent =
+                    "ERROR: API KEY REQUIRED.";
+
+                ownershipModalError.style.display =
+                    "block";
+
+                ownershipApiKeyInput.focus();
+
+                return;
+
+            }
+
+            cleanup();
+
+            ownershipModal.style.display =
+                "none";
+
+            resolve(key);
+
+        }
+
+
+        function cancel(){
+
+            cleanup();
+
+            ownershipModal.style.display =
+                "none";
+
+            resolve(null);
+
+        }
+
+
+        function keydown(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                submit();
+
+            }
+
+            if(event.key === "Escape"){
+
+                event.preventDefault();
+
+                cancel();
+
+            }
+
+        }
+
+
+        ownershipModalSubmit.addEventListener(
+            "click",
+            submit
+        );
+
+        ownershipModalCancel.addEventListener(
+            "click",
+            cancel
+        );
+
+        ownershipApiKeyInput.addEventListener(
+            "keydown",
+            keydown
+        );
+
+    });
+
+}
+
+
 const API_URL =
     "https://fallout-mtg-api.jaksla-806.workers.dev";
-    
+
 const searchInput =
     document.getElementById("searchInput");
 
