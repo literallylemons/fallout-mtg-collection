@@ -32,29 +32,45 @@
 
     function createLoader(){
 
-        loader = document.createElement("div");
+        loader =
+            document.createElement("div");
 
-        loader.className = "terminal-loader";
+        loader.className =
+            "terminal-loader";
+
 
         loader.innerHTML = `
-            <div class="terminal-loader-content">
 
-                <div class="terminal-loader-header">
+            <div class="terminal">
 
-                    <div class="terminal-loader-title">
-                        ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM
+                <div class="header">
+
+                    <div class="terminal-title">
+                        COLLECTION MANAGEMENT TERMINAL
                     </div>
 
-                    <div class="terminal-loader-subtitle">
+                    <div class="system-title">
+                        ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v 1.61
+                    </div>
+
+                    <div class="copyright">
                         COPYRIGHT 2075-2077 ROBCO INDUSTRIES
                     </div>
 
                 </div>
 
+
+                <div class="divider">
+                    ============================================================
+                </div>
+
+
                 <div class="terminal-loader-steps"></div>
 
             </div>
+
         `;
+
 
         document.body.appendChild(loader);
 
@@ -68,16 +84,20 @@
                 ".terminal-loader-steps"
             );
 
+
         const line =
             document.createElement("div");
 
         line.className =
             "terminal-loader-line";
 
+
         line.innerHTML =
             `> ${text} <span class="terminal-loader-cursor"></span>`;
 
+
         steps.appendChild(line);
+
 
         return line;
 
@@ -91,11 +111,13 @@
                 ".terminal-loader-cursor"
             );
 
+
         if(cursor){
 
             cursor.remove();
 
         }
+
 
         line.innerHTML +=
             ` <span class="terminal-loader-complete">OK</span>`;
@@ -126,6 +148,7 @@
 
             currentStep++;
 
+
             setTimeout(
                 runNextStep,
                 100
@@ -140,10 +163,12 @@
 
         sequenceFinished = true;
 
+
         const steps =
             loader.querySelector(
                 ".terminal-loader-steps"
             );
+
 
         const readyLine =
             document.createElement("div");
@@ -153,6 +178,7 @@
 
         readyLine.textContent =
             "> SYSTEM READY.";
+
 
         steps.appendChild(readyLine);
 
@@ -172,11 +198,15 @@
 
     function startTransition(){
 
-        if(!sequenceFinished || !pageReady){
+        if(
+            !sequenceFinished ||
+            !pageReady
+        ){
 
             return;
 
         }
+
 
         loader.classList.add(
             "crt-transition"
@@ -196,17 +226,19 @@
     }
 
 
-    window.finishTerminalLoading = function(){
+    window.finishTerminalLoading =
+        function(){
 
-        pageReady = true;
+            pageReady = true;
 
-        if(sequenceFinished){
 
-            startTransition();
+            if(sequenceFinished){
 
-        }
+                startTransition();
 
-    };
+            }
+
+        };
 
 
     function start(){
