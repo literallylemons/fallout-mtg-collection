@@ -4,41 +4,49 @@
 
     let transitioning = false;
 
-    function startTransition(url){
 
-        if(transitioning){
+    window.navigateWithTransition =
+        function(url){
 
-            return;
+            if(transitioning){
 
-        }
+                return;
 
-        const terminal =
-            document.querySelector(
-                ".terminal"
+            }
+
+
+            const terminal =
+                document.querySelector(
+                    ".terminal"
+                );
+
+
+            if(!terminal){
+
+                window.location.href =
+                    url;
+
+                return;
+
+            }
+
+
+            transitioning = true;
+
+
+            terminal.classList.add(
+                "crt-transition"
             );
 
-        if(!terminal){
 
-            window.location.href = url;
+            setTimeout(function(){
 
-            return;
+                window.location.href =
+                    url;
 
-        }
+            }, transitionDuration);
 
-        transitioning = true;
-
-
-        terminal.classList.add(
-            "crt-transition"
-        );
-
-        setTimeout(function(){
-
-            window.location.href = url;
-
-        }, transitionDuration);
-
-    }
+        };
 
     document.addEventListener(
         "click",
@@ -122,7 +130,7 @@
 
             event.preventDefault();
 
-            startTransition(
+            navigateWithTransition(
                 url.href
             );
 
