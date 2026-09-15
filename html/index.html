@@ -119,14 +119,44 @@ function updateSelection(){
 
 function openSelected(){
     const page=menuItems[selectedIndex].dataset.page;
-    if(page) window.location.href=page;
+
+    if(page){
+        navigateWithTransition(page);
+    }
 }
 
 function openItem(item){
     const page=item.dataset.page;
-    if(page) window.location.href=page;
+
+    if(page){
+        navigateWithTransition(page);
+    }
 }
 
+function navigateWithTransition(url){
+
+    const terminal =
+        document.querySelector(".terminal");
+
+    if(!terminal){
+
+        window.location.href=url;
+        return;
+
+    }
+
+    terminal.classList.add(
+        "crt-transition"
+    );
+
+    setTimeout(function(){
+
+        window.location.href=url;
+
+    },320);
+
+}
+    
 document.addEventListener("keydown",event=>{
 
     if(event.key>="1"&&event.key<="6"){
@@ -177,6 +207,7 @@ menuItems.forEach((item,index)=>{
 </script>
 
 <script src="js/terminal-loader.js"></script>
+<script src="js/terminal-transition.js"></script>
 
 <script>
 window.finishTerminalLoading();
