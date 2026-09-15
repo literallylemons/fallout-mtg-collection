@@ -318,7 +318,7 @@ body{
 
 /* CRT CHANNEL CHANGE */
 
-.terminal-loader.crt-transition{
+.terminal.crt-transition{
     animation:crtChannelChange .32s steps(1,end) forwards;
 }
 
