@@ -250,16 +250,30 @@
     }
 
 
-    if(document.readyState === "loading"){
+    const currentPath =
+        window.location.pathname;
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            start
-        );
 
-    }else{
+    const mainMenuPath =
+        "/fallout-mtg-collection/html/";
 
-        start();
+
+    if(
+        currentPath === mainMenuPath
+    ){
+
+        if(document.readyState === "loading"){
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                start
+            );
+
+        }else{
+
+            start();
+
+        }
 
     }
 
