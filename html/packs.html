@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -13,9 +10,7 @@
 <title>Fallout MTG Collection - Packs</title>
 
 <link rel="stylesheet" href="../css/terminal.css">
-
 <style>
-
 body{
     overflow-x:hidden;
     overflow-y:auto
@@ -27,7 +22,6 @@ body{
     overflow:visible
 }
 
-
 /* PAGE TITLE */
 
 .page-title{
@@ -37,7 +31,6 @@ body{
     margin-bottom:14px
 }
 
-
 /* STATUS */
 
 .status-line{
@@ -45,7 +38,6 @@ body{
     line-height:1.5;
     margin-bottom:8px
 }
-
 
 /* CONTROLS */
 
@@ -77,7 +69,6 @@ body{
     text-shadow:none;
     box-shadow:0 0 12px rgba(120,255,106,.8)
 }
-
 
 /* PRODUCT DATABASE */
 
@@ -161,7 +152,6 @@ body{
     content:"> ";
 }
 
-
 /* FOOTER */
 
 .footer{
@@ -194,7 +184,6 @@ body{
     color:#020502;
     text-shadow:none
 }
-
 
 /* MOBILE */
 
@@ -240,7 +229,6 @@ body{
     }
 }
 
-
 /* SMALL MOBILE */
 
 @media(max-width:450px){
@@ -258,7 +246,6 @@ body{
 </style>
 </head>
 
-
 <body>
 
 <div class="terminal">
@@ -275,11 +262,9 @@ body{
 
     </div>
 
-
     <div class="page-title">
         &gt;&gt; SEALED PRODUCTS.EXE
     </div>
-
 
     <div class="status-line">
         <span>
@@ -287,11 +272,9 @@ body{
         </span>
     </div>
 
-
     <div class="divider">
         ============================================================
     </div>
-
 
     <div class="controls">
 
@@ -305,39 +288,32 @@ body{
 
     </div>
 
-
     <div class="section-title">
         &gt; PIP / 2024
     </div>
-
 
     <div
         class="product-list"
         id="pipProducts"
     ></div>
 
-
     <div class="section-title">
         &gt; SLD / 2024
     </div>
-
 
     <div
         class="product-list"
         id="sld2024Products"
     ></div>
 
-
     <div class="section-title">
         &gt; SLD / 2026
     </div>
-
 
     <div
         class="product-list"
         id="sld2026Products"
     ></div>
-
 
     <div
         class="detail-panel"
@@ -373,48 +349,32 @@ body{
 
 
         <div class="detail-row">
-
             <span class="detail-label">
                 Product Type:
             </span>
 
             <span id="detailVariant"></span>
+        </div>
 
         <div class="detail-row">
-
             <span class="detail-label">
                 No Foil:
             </span>
         
             <span id="detailNoFoil"></span>
-        
         </div>
-        
-        
         <div class="detail-row">
-        
             <span class="detail-label">
                 Standard Foil:
             </span>
-        
             <span id="detailStandardFoil"></span>
-        
         </div>
-
     </div>
-
-
     <div class="footer">
-
         <div class="prompt">
-    
             &gt; SELECT PRODUCT TO VIEW DETAILS
-    
             <span class="cursor"></span>
-    
         </div>
-    
-    
         <a
             href="index.html"
             class="back-button"
@@ -426,7 +386,6 @@ body{
     </div>
 
 </div>
-
 
 <script>
 
@@ -578,9 +537,7 @@ const products = [
 
 ];
 
-
 let selectedIndex = 0;
-
 
 const pipProducts =
     document.getElementById("pipProducts");
@@ -652,7 +609,6 @@ function renderProducts() {
                     index
                 );
 
-
             if (product.set === "PIP") {
 
                 pipProducts.appendChild(
@@ -691,11 +647,9 @@ function selectProduct(index) {
     const product =
         products[index];
 
-
     if (!product) {
         return;
     }
-
 
     document
         .querySelectorAll(".product")
@@ -707,12 +661,10 @@ function selectProduct(index) {
 
         });
 
-
     const selectedButton =
         document.querySelector(
             `.product[data-index="${index}"]`
         );
-
 
     if (selectedButton) {
 
@@ -724,36 +676,28 @@ function selectProduct(index) {
 
     }
 
-
     detailTitle.textContent =
         "> " + product.name;
-
 
     detailSet.textContent =
         product.set;
 
-
     detailYear.textContent =
         product.year;
-
 
     detailVariant.textContent =
         product.variant;
     
-    
     detailNoFoil.textContent =
         product.noFoil;
     
-    
     detailStandardFoil.textContent =
         product.standardFoil;
-    
     
     detailPanel.classList.add(
         "visible"
     );
 }
-
 
 function escapeHtml(value) {
 
@@ -781,14 +725,12 @@ function escapeHtml(value) {
 
 }
 
-
 document.addEventListener(
     "keydown",
     event => {
 
         const activeElement =
             document.activeElement;
-
 
         if (
             activeElement &&
@@ -803,7 +745,6 @@ document.addEventListener(
             return;
 
         }
-
 
         if (
             event.key ===
@@ -824,7 +765,6 @@ document.addEventListener(
 
         }
 
-
         else if (
             event.key ===
             "ArrowUp"
@@ -844,7 +784,6 @@ document.addEventListener(
 
         }
 
-
         else if (
             event.key ===
             "Enter"
@@ -857,7 +796,6 @@ document.addEventListener(
             );
 
         }
-
 
         else if (
             event.key ===
@@ -873,7 +811,6 @@ document.addEventListener(
 
     }
 );
-
 
 renderProducts();
 
