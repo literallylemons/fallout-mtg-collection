@@ -558,6 +558,61 @@ body{
 let cards = [];
 
 
+const MIN_MESSAGES = 5;
+const MAX_MESSAGES = 10;
+
+const MIN_MESSAGE_TIME = 150;
+const MAX_MESSAGE_TIME = 500;
+
+
+let dealHunterMessages = [];
+
+
+/*
+ * Load Deal Hunter messages.
+ */
+
+fetch("../data/deal_hunter_messages.json")
+
+    .then(response => {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load deal_hunter_messages.json. HTTP " +
+                response.status
+            );
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        if (
+            !Array.isArray(data) ||
+            data.length === 0
+        ) {
+
+            throw new Error(
+                "deal_hunter_messages.json contains no messages."
+            );
+
+        }
+
+        dealHunterMessages = data;
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+    });
+
+
 /*
  * Load card database
  */
@@ -930,37 +985,103 @@ async function startHunt() {
     document.getElementById("result").style.display =
         "none";
 
-    let messageIndex = 0;
+    /*
+ * Randomized scanning animation.
+ */
 
-    const scanInterval =
-        setInterval(() => {
+if (dealHunterMessages.length === 0) {
 
-            scanner.textContent =
-                "> " +
-                messages[messageIndex];
+    scanner.textContent =
+        "> ERROR: NO SCANNER MESSAGES LOADED.";
 
-
-            messageIndex++;
-
-
-            if (
-                messageIndex >= messages.length
-            ) {
-
-                clearInterval(scanInterval);
-
-
-                setTimeout(() => {
-
-                    revealTarget(target);
-
-                }, 500);
-
-            }
-
-        }, 250);
+    return;
 
 }
+
+
+const messageCount =
+    Math.floor(
+        Math.random() *
+        (MAX_MESSAGES - MIN_MESSAGES + 1)
+    ) +
+    MIN_MESSAGES;
+
+
+const messages = [];
+
+
+/*
+ * Select random messages.
+ */
+
+for (
+    let i = 0;
+    i < messageCount;
+    i++
+) {
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            dealHunterMessages.length
+        );
+
+    messages.push(
+        dealHunterMessages[randomIndex]
+    );
+
+}
+
+
+let messageIndex = 0;
+
+
+function showNextMessage() {
+
+    if (
+        messageIndex >= messages.length
+    ) {
+
+        setTimeout(() => {
+
+            revealTarget(target);
+
+        }, 500);
+
+        return;
+
+    }
+
+
+    scanner.textContent =
+        "> " +
+        messages[messageIndex];
+
+
+    messageIndex++;
+
+
+    const messageTime =
+        Math.floor(
+            Math.random() *
+            (
+                MAX_MESSAGE_TIME -
+                MIN_MESSAGE_TIME +
+                1
+            )
+        ) +
+        MIN_MESSAGE_TIME;
+
+
+    setTimeout(
+        showNextMessage,
+        messageTime
+    );
+
+}
+
+
+showNextMessage();
 
 
 /*
