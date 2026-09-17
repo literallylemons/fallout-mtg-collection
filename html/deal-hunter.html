@@ -697,64 +697,27 @@ function getFinishData(card) {
  * Start Deal Hunter.
  */
 
-async function startHunt() {
+function startHunt() {
 
     if (cards.length === 0) {
 
         alert(
-            "The card database has not finished loading."
+            "> THE CARD DATABASE HAS NOT FINISHED LOADING"
         );
 
         return;
 
     }
 
-    let messages;
-
-    try {
-
-        const response =
-            await fetch(
-                "../data/deal_hunter_messages.json"
-            );
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Could not load deal_hunter_messages.json. HTTP " +
-                response.status
-            );
-
-        }
-
-        messages =
-            await response.json();
-
-        if (
-            !Array.isArray(messages) ||
-            messages.length === 0
-        ) {
-
-            throw new Error(
-                "deal_hunter_messages.json contains no messages."
-            );
-
-        }
-
-    }
-
-    catch(error) {
-
+    if (dealHunterMessages.length === 0) {
+    
         document.getElementById("scanner").textContent =
-            "ERROR: " +
-            error.message;
-
-        console.error(error);
-
+            "> ERROR: SCANNER MESSAGE DATABASE NOT LOADED";
+    
         return;
-
+    
     }
-
+    
     const ownership =
         document.getElementById("ownership").value;
     
@@ -985,19 +948,9 @@ async function startHunt() {
     document.getElementById("result").style.display =
         "none";
 
-    /*
+/*
  * Randomized scanning animation.
  */
-
-if (dealHunterMessages.length === 0) {
-
-    scanner.textContent =
-        "> ERROR: NO SCANNER MESSAGES LOADED.";
-
-    return;
-
-}
-
 
 const messageCount =
     Math.floor(
@@ -1080,9 +1033,9 @@ function showNextMessage() {
 
 }
 
-
 showNextMessage();
-
+    
+}
 
 /*
  * Reveal target.
