@@ -281,7 +281,7 @@ body{
         <button
             type="button"
             class="top-menu-button"
-            onclick="window.location.href='index.html'"
+            onclick="navigateWithTransition('index.html')"
         >
             &gt; RETURN TO MAIN MENU
         </button>
@@ -804,9 +804,9 @@ document.addEventListener(
 
             event.preventDefault();
 
-            window.location.href =
+             navigateWithTransition(
                 "index.html";
-
+            );
         }
 
     }
