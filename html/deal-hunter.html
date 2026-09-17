@@ -642,7 +642,7 @@ function getFinishData(card) {
  * Start Deal Hunter.
  */
 
-function startHunt() {
+async function startHunt() {
 
     if (cards.length === 0) {
 
@@ -654,6 +654,51 @@ function startHunt() {
 
     }
 
+    let messages;
+
+    try {
+
+        const response =
+            await fetch(
+                "../data/deal_hunter_messages.json"
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load deal_hunter_messages.json. HTTP " +
+                response.status
+            );
+
+        }
+
+        messages =
+            await response.json();
+
+        if (
+            !Array.isArray(messages) ||
+            messages.length === 0
+        ) {
+
+            throw new Error(
+                "deal_hunter_messages.json contains no messages."
+            );
+
+        }
+
+    }
+
+    catch(error) {
+
+        document.getElementById("scanner").textContent =
+            "ERROR: " +
+            error.message;
+
+        console.error(error);
+
+        return;
+
+    }
 
     const ownership =
         document.getElementById("ownership").value;
@@ -885,32 +930,7 @@ function startHunt() {
     document.getElementById("result").style.display =
         "none";
 
-
-    const messages = [
-
-        "Initializing target acquisition...",
-
-        "Searching collection database...",
-
-        "Scanning card registry...",
-
-        "Cross-referencing collection records...",
-
-        "Analyzing ownership status...",
-
-        "Searching for acquisition opportunities...",
-
-        "Comparing card records...",
-
-        "Verifying target parameters...",
-
-        "Establishing target lock..."
-
-    ];
-
-
     let messageIndex = 0;
-
 
     const scanInterval =
         setInterval(() => {
