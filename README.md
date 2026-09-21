@@ -1,2 +1,2 @@
 # fallout-mtg-collection
-Fallout MTG Collection
+My Fallout MTG Collection
